@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr1wbfinn6ar2"]
+[gd_scene load_steps=12 format=3 uid="uid://dr1wbfinn6ar2"]
 
 [ext_resource type="Script" path="res://Traps/Laser.gd" id="1_cuis5"]
 [ext_resource type="Texture2D" uid="uid://brl68bamwbkch" path="res://Traps/laser.png" id="2_i2cg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw2uy"]
-size = Vector2(13, 156)
+size = Vector2(13, 91)
 
 [sub_resource type="Animation" id="Animation_81geh"]
 resource_name = "Move"
@@ -97,6 +97,24 @@ _data = {
 "Shut_Down": SubResource("Animation_icifm")
 }
 
+[sub_resource type="Curve" id="Curve_l5cpn"]
+max_value = 2.0
+_data = [Vector2(0, 1.97802), 0.0, -2.50095, 0, 0, Vector2(1, 0.472527), -3.45124, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cq0tm"]
+curve = SubResource("Curve_l5cpn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kgq64"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 1)
+gravity = Vector3(0, -100, 0)
+radial_accel_min = 24.72
+radial_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_cq0tm")
+color = Color(0.662745, 0.788235, 1, 1)
+
 [node name="Laser" type="RigidBody2D"]
 freeze = true
 script = ExtResource("1_cuis5")
@@ -105,12 +123,12 @@ Damage = 2
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(2.5, 41)
+visible = false
+position = Vector2(2.5, 36.5)
 shape = SubResource("RectangleShape2D_jw2uy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.5, 35)
-scale = Vector2(1.21875, 1.72917)
 texture = ExtResource("2_i2cg3")
 hframes = 9
 frame = 3
@@ -119,5 +137,10 @@ frame = 3
 libraries = {
 "": SubResource("AnimationLibrary_67ei3")
 }
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(4, 82)
+process_material = SubResource("ParticleProcessMaterial_kgq64")
+lifetime = 0.3
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

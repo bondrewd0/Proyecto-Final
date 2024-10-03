@@ -4,6 +4,7 @@ class_name Enemy
 const SPEED = 300.0
 @onready var unmarktimer = $UnMarkTimer
 @onready var mov_timer = $MovTimer
+@onready var light = $PointLight2D
 
 @onready var sprite = $AnimatedSprite2D
 @export var MOVE_SPEED:float=100
@@ -62,8 +63,10 @@ func _on_mov_timer_timeout():
 	can_move=!can_move
 	if direction==1:
 		sprite.flip_h=false
+		light.rotation=0
 	else:
 		sprite.flip_h=true
+		light.rotation=3
 	if !can_move:
 		direction*=-1
 		velocity.x=0

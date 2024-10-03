@@ -97,16 +97,18 @@ animations = [{
 height = 80.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51i87"]
-height = 66.0
+height = 32.0
 
 [sub_resource type="Gradient" id="Gradient_pklsr"]
-offsets = PackedFloat32Array(0.0194805, 0.733766)
+offsets = PackedFloat32Array(0, 0.831169)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1ww8a"]
 gradient = SubResource("Gradient_pklsr")
 fill = 1
-fill_from = Vector2(0.5, 0.5)
+fill_from = Vector2(0.9, 0.5)
+fill_to = Vector2(0, 0.5)
+metadata/_snap_enabled = true
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
@@ -125,12 +127,10 @@ collision_layer = 4
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 shape = SubResource("CapsuleShape2D_xiq2s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 22)
+position = Vector2(-1, 38)
 shape = SubResource("CapsuleShape2D_51i87")
 debug_color = Color(0.898039, 0, 0.0392157, 0.419608)
 
@@ -143,9 +143,11 @@ one_shot = true
 [node name="StunTime" type="Timer" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(5, 1)
+position = Vector2(20, 0)
+scale = Vector2(1.625, 1)
 color = Color(0, 1, 1, 1)
 energy = 3.94
+blend_mode = 2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1ww8a")
 
