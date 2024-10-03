@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=3 uid="uid://b7nxyoen0p4a7"]
+
+[ext_resource type="Script" path="res://EnemyAssets/Enemy.gd" id="1_27cbm"]
+[ext_resource type="Texture2D" uid="uid://dmhwejjo6uxyt" path="res://EnemyAssets/Drone.png" id="2_hgr8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c853"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(0, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkw83"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(96, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jlqr"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(192, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xnv"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(288, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xubp"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(384, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv074"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(480, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux7tl"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(0, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogn88"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(96, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr2fc"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(192, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m450"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(288, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d8j6"]
+atlas = ExtResource("2_hgr8y")
+region = Rect2(384, 288, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jp55w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c853")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkw83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jlqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xubp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv074")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux7tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogn88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr2fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m450")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d8j6")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xiq2s"]
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51i87"]
+height = 66.0
+
+[sub_resource type="Gradient" id="Gradient_pklsr"]
+offsets = PackedFloat32Array(0.0194805, 0.733766)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ww8a"]
+gradient = SubResource("Gradient_pklsr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_27cbm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jp55w")
+animation = &"Idle"
+frame_progress = 0.899919
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-1, 9)
+collision_layer = 4
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+shape = SubResource("CapsuleShape2D_xiq2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 22)
+shape = SubResource("CapsuleShape2D_51i87")
+debug_color = Color(0.898039, 0, 0.0392157, 0.419608)
+
+[node name="UnMarkTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="MovTimer" type="Timer" parent="."]
+
+[node name="StunTime" type="Timer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(5, 1)
+color = Color(0, 1, 1, 1)
+energy = 3.94
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1ww8a")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="UnMarkTimer" to="." method="_on_un_mark_timer_timeout"]
+[connection signal="timeout" from="MovTimer" to="." method="_on_mov_timer_timeout"]

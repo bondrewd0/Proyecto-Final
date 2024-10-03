@@ -1,0 +1,76 @@
+extends CharacterBody2D
+class_name Enemy
+
+const SPEED = 300.0
+@onready var unmarktimer = $UnMarkTimer
+@onready var mov_timer = $MovTimer
+
+@onready var sprite = $AnimatedSprite2D
+@export var MOVE_SPEED:float=100
+@export_range(1.0,10.0) var Moving_time:float=1.0
+@export var LEVEL_BOTTOM:int=100
+var marked:bool=false
+var direction:int=1
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var can_move:bool=true
+func _ready():
+	mov_timer.wait_time=Moving_time
+	sprite.play("Move")
+	mov_timer.start()
+
+func _physics_process(delta):
+	if global_position.y>LEVEL_BOTTOM:
+		print("CONCHETUMAEE")
+		SignalBus.unmark_enemy.emit()
+		queue_free()
+	if can_move:
+		velocity.x=direction*MOVE_SPEED
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	move_and_slide()
+	
+
+func _on_hitbox_area_entered(area):
+	var parent= area.get_parent()
+	if parent is Player:
+		#print("HIT")
+		parent.damaged(global_position.x)
+	if parent is Player_Bullet:
+		#print("Tagged!")
+		marked=true
+		SignalBus.emit_signal("enemy_marked",self)
+		unmarktimer.start()
+
+
+func _on_un_mark_timer_timeout():
+	#print("no longer it")
+	marked=false
+	SignalBus.unmark_enemy.emit()
+
+func moved():
+	unmarktimer.stop()
+	mov_timer.stop()
+	marked=false
+	can_move=false
+	move_and_slide()
+	mov_timer.start()
+
+
+func _on_mov_timer_timeout():
+	#print("ding",direction)
+	can_move=!can_move
+	if direction==1:
+		sprite.flip_h=false
+	else:
+		sprite.flip_h=true
+	if !can_move:
+		direction*=-1
+		velocity.x=0
+		sprite.play("Idle")
+		#print("waiting")
+	else:
+		sprite.play("Move")
+		#print("Moving")
+	#print(mov_timer.wait_time, direction)
+	mov_timer.start()

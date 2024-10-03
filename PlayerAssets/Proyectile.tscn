@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bng4pq83aqpp4"]
+
+[ext_resource type="Script" path="res://PlayerAssets/Proyectile.gd" id="1_fksg1"]
+[ext_resource type="Texture2D" uid="uid://bkox48njtflv2" path="res://PlayerAssets/Special.png" id="2_0ed5n"]
+
+[sub_resource type="Animation" id="Animation_bgyuu"]
+resource_name = "Dissipate"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4)
+}
+
+[sub_resource type="Animation" id="Animation_65i5b"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqbia"]
+_data = {
+"Dissipate": SubResource("Animation_bgyuu"),
+"RESET": SubResource("Animation_65i5b")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_negfh"]
+radius = 17.0
+
+[node name="Proyectile" type="CharacterBody2D"]
+script = ExtResource("1_fksg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.640523, 0.284314)
+texture = ExtResource("2_0ed5n")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqbia")
+}
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_negfh")
+
+[node name="Despawner" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Despawner" to="." method="_on_despawner_timeout"]
