@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://demy82vnw23k5"]
+
+[ext_resource type="Script" path="res://Pantallas/GameOver.gd" id="1_35hg6"]
+[ext_resource type="Texture2D" uid="uid://pg51tccak0cr" path="res://GeneralAssets/GUI.png" id="1_g6mq0"]
+[ext_resource type="FontFile" uid="uid://d1488ud3ildl5" path="res://GeneralAssets/Dank-Depths.ttf" id="2_2iw7x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1a1i"]
+atlas = ExtResource("1_g6mq0")
+region = Rect2(160, 160, 112, 32)
+
+[node name="Fondo" type="ColorRect"]
+top_level = true
+light_mask = 0
+visibility_layer = 512
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056532, 0.0545094, 0.170882, 1)
+script = ExtResource("1_35hg6")
+
+[node name="Reintentar" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 310.0
+offset_right = 534.0
+offset_bottom = 350.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Reintentar"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 7.0
+offset_right = 129.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_2iw7x")
+text = "RETRY"
+
+[node name="Salir" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 381.0
+offset_right = 534.0
+offset_bottom = 421.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Salir"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 46.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_2iw7x")
+text = "QUIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 142.0
+offset_right = 799.0
+offset_bottom = 182.0
+theme_override_fonts/bold_font = ExtResource("2_2iw7x")
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]GAME OVER"
+
+[connection signal="pressed" from="Reintentar" to="." method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

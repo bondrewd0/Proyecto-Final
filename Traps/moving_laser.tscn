@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmb2upka0rjm"]
+
+[ext_resource type="PackedScene" uid="uid://dui7rqad2l4gl" path="res://Components/moving_object.tscn" id="1_hwxc3"]
+[ext_resource type="Script" path="res://MovingLaser.gd" id="2_34yoo"]
+[ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="3_akmkg"]
+
+[node name="MovingLaser" node_paths=PackedStringArray("Object_to_Move") instance=ExtResource("1_hwxc3")]
+script = ExtResource("2_34yoo")
+can_stop = false
+stop_time = 1.0
+Object_to_Move = NodePath("Laser")
+
+[node name="Laser" parent="." index="2" instance=ExtResource("3_akmkg")]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

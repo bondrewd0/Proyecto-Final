@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=33 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c4ynoeatl1gjn" path="res://MapAssets/background5.png" id="7_gq87s"]
 [ext_resource type="PackedScene" uid="uid://b7nxyoen0p4a7" path="res://EnemyAssets/Enemy.tscn" id="8_8n565"]
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="12_ofdem"]
-[ext_resource type="PackedScene" uid="uid://dui7rqad2l4gl" path="res://Components/moving_object.tscn" id="13_gpwkm"]
+[ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="14_8nwcj"]
+[ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="14_vqkck"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fdpj0"]
 
@@ -6715,20 +6716,25 @@ sources/3 = SubResource("TileSetAtlasSource_4ywcs")
 sources/4 = SubResource("TileSetAtlasSource_s67wd")
 sources/5 = SubResource("TileSetAtlasSource_xg0j7")
 
-[sub_resource type="Curve2D" id="Curve2D_12o7a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1upyw"]
+resource_local_to_scene = true
+atlas = ExtResource("2_quwey")
+region = Rect2(960, 352, 32, 32)
+
+[sub_resource type="Curve2D" id="Curve2D_xmlj4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 2, 0, 0, 0, 0, 143, 2)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 13, 0, 0, 0, 0, 119, 12)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_hpni2"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, 0, -19.75, 8, 19.75, -8, 105, 5, 1, 12.75, -1, -12.75, 150, -33, 0, 0, 0, 0, 85, -75, 0, 0, 0, 0, 3, -54, 0, 0, 0, 0, -32, -23, 0, 0, 0, 0, 2, 0)
-}
-point_count = 7
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcxeo"]
+resource_local_to_scene = true
+atlas = ExtResource("2_quwey")
+region = Rect2(960, 352, 32, 32)
 
 [node name="Tst_Level" type="Node2D"]
 script = ExtResource("1_phd3e")
+gameover_Screen = "res://Pantallas/GameOver.tscn"
 
 [node name="Mapa" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dekjd")
@@ -6789,7 +6795,7 @@ offset_bottom = 576.0
 texture = ExtResource("7_gq87s")
 
 [node name="Player" parent="." instance=ExtResource("1_swo2n")]
-position = Vector2(594, 312)
+position = Vector2(732, 470)
 scale = Vector2(0.8, 0.8)
 KNOCBACK_POWER = 150.0
 
@@ -6800,12 +6806,6 @@ limit_top = 0
 limit_right = 1500
 limit_bottom = 700
 editor_draw_limits = true
-
-[node name="Enemy" parent="." instance=ExtResource("8_8n565")]
-position = Vector2(254, 466)
-MOVE_SPEED = 50.0
-Moving_time = 2.0
-LEVEL_BOTTOM = 600
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -0.787143
@@ -6819,19 +6819,32 @@ color = Color(0.0769226, 0.174046, 0.17317, 1)
 [node name="Laser" parent="." instance=ExtResource("12_ofdem")]
 position = Vector2(860, 428)
 
-[node name="MovingObject" parent="." node_paths=PackedStringArray("Object_to_Move") instance=ExtResource("13_gpwkm")]
-position = Vector2(844, 428)
-curve = SubResource("Curve2D_12o7a")
-Object_to_Move = NodePath("Laser")
-speed_scale = 0.5
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(601, 447)
 
-[node name="Laser" parent="MovingObject" instance=ExtResource("12_ofdem")]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="MovingObject2" parent="." node_paths=PackedStringArray("Object_to_Move") instance=ExtResource("13_gpwkm")]
-position = Vector2(799, 288)
-curve = SubResource("Curve2D_hpni2")
+[node name="Enemy" parent="Enemies" instance=ExtResource("8_8n565")]
+position = Vector2(254, 466)
+MOVE_SPEED = 50.0
+Moving_time = 2.0
+LEVEL_BOTTOM = 600
+
+[node name="Device" parent="." node_paths=PackedStringArray("Attached_Object") instance=ExtResource("14_8nwcj")]
+z_index = -1
+position = Vector2(730, 493)
+texture = SubResource("AtlasTexture_1upyw")
+Attached_Object = NodePath("../Laser")
+One_use = true
+
+[node name="MovingLaser" parent="." instance=ExtResource("14_vqkck")]
+position = Vector2(319, 318)
+curve = SubResource("Curve2D_xmlj4")
+can_stop = true
+stop_time = 5.0
 loop = true
-Object_to_Move = NodePath("Laser")
-speed_scale = 2.0
 
-[node name="Laser" parent="MovingObject2" instance=ExtResource("12_ofdem")]
+[node name="Device2" parent="." node_paths=PackedStringArray("Attached_Object") instance=ExtResource("14_8nwcj")]
+position = Vector2(753, 401)
+texture = SubResource("AtlasTexture_hcxeo")
+Attached_Object = NodePath("../MovingLaser")

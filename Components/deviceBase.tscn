@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddv41nvfdxqvc"]
+
+[ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/1. main platforms.png" id="1_gykn8"]
+[ext_resource type="Script" path="res://Components/deviceBase.gd" id="2_aiwfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kksy"]
+resource_local_to_scene = true
+atlas = ExtResource("1_gykn8")
+region = Rect2(960, 352, 32, 32)
+
+[sub_resource type="Animation" id="Animation_8c1vg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(960, 352, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_e47tj"]
+resource_name = "Off"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(928, 352, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_1lmbk"]
+resource_name = "On"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(960, 352, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gscy"]
+_data = {
+"Off": SubResource("Animation_e47tj"),
+"On": SubResource("Animation_1lmbk"),
+"RESET": SubResource("Animation_8c1vg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61q7a"]
+
+[node name="Device" type="Sprite2D"]
+texture = SubResource("AtlasTexture_2kksy")
+script = ExtResource("2_aiwfa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4gscy")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_61q7a")

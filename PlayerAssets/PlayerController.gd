@@ -10,6 +10,7 @@ class_name Player
 @export var KNOCBACK_POWER:float=500
 var player_dir:int=0
 @export var knocked_state:State
+var interactable_object:DeviceBase=null
 func _ready():
 	state_manager.init(self,anim_tree)
 	pass
@@ -34,3 +35,21 @@ func damaged(enemy_dir:float):
 	velocity.x=knockBack
 	move_and_slide()
 	
+
+func _input(event):
+	if event.is_action_pressed("Interact"):
+		if interactable_object:
+			print(interactable_object)
+			interactable_object.interaction()
+
+
+func _on_hitbox_area_entered(area):
+	var parent=area.get_parent()
+	if parent is DeviceBase:
+		interactable_object=parent
+
+
+func _on_hitbox_area_exited(area):
+	var parent=area.get_parent()
+	if parent is DeviceBase:
+		interactable_object=null

@@ -15,12 +15,13 @@ func _ready():
 	if !loop:
 		animation_player.play("move")
 		animation_player.speed_scale=speed_scale
-		set_process(false)
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	path_follow_2d.progress+=Speed
+	if loop:
+		path_follow_2d.progress+=Speed
 
 func deactivate():
 	if Object_to_Move is Trap:
