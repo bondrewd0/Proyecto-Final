@@ -12,6 +12,9 @@ func _enter():
 	anim_tree.set("parameters/conditions/Idle",true)
 
 func _handle_inputs(event:InputEvent):
+	if event.is_action_pressed("Down") and Parent.is_on_floor():
+		Parent.position.y+=1
+		
 	var direction=Input.get_axis("Left","Right")
 	if direction:
 		return Walk_State
@@ -22,6 +25,7 @@ func _handle_inputs(event:InputEvent):
 	return null
 
 func _update(_delta:float):
+	Parent.move_and_slide()
 	if !Parent.is_on_floor():
 		return Fall_State
 	return null

@@ -143,10 +143,10 @@ one_shot = true
 [node name="StunTime" type="Timer" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(20, 0)
-scale = Vector2(1.625, 1)
+position = Vector2(2, 14)
+scale = Vector2(1.625, 1.4375)
 color = Color(0, 1, 1, 1)
-energy = 3.94
+energy = 5.0
 blend_mode = 2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1ww8a")

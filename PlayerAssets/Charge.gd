@@ -61,7 +61,7 @@ func fire_proyectile():
 func _update(_delta:float):
 	Parent.move_and_slide()
 	if can_charge:
-		charge_level+=0.005
+		charge_level+=0.01
 		charge_level=clampf(charge_level,1.0,Max_charge)
 	else:
 		return Idle_State

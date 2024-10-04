@@ -56,6 +56,7 @@ func moved():
 	can_move=false
 	move_and_slide()
 	mov_timer.start()
+	velocity.y=-200
 
 
 func _on_mov_timer_timeout():
