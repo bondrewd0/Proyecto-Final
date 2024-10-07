@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=35 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="14_8nwcj"]
 [ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="14_vqkck"]
 [ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="15_yvg5q"]
+[ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="16_8qu2y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fdpj0"]
 
@@ -6850,7 +6851,10 @@ Attached_Object = NodePath("../MovingLaser")
 
 [node name="PressureButton" parent="." node_paths=PackedStringArray("Attached_Object") instance=ExtResource("15_yvg5q")]
 position = Vector2(633, 499)
-Attached_Object = NodePath("../Laser2")
+Attached_Object = NodePath("../Portal")
 
 [node name="Laser2" parent="." instance=ExtResource("12_ofdem")]
 position = Vector2(592, 286)
+
+[node name="Portal" parent="." instance=ExtResource("16_8qu2y")]
+position = Vector2(1007, 289)

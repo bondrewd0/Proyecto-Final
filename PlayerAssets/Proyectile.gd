@@ -16,7 +16,7 @@ func _ready():
 	despawner.start()
 	#print(global_position)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x=SPEED*direction*SPEED_MOD
 	move_and_slide()
 

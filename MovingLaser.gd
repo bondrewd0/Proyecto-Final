@@ -8,7 +8,7 @@ func _ready():
 	super()
 	$Timer.wait_time=stop_time
 
-func _process(delta):
+func _process(_delta):
 	if !stopped:
 		path_follow_2d.progress+=Speed
 	if can_stop and path_follow_2d.progress_ratio>=0.99 and !stopped:

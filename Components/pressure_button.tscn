@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq7cbyoscu7h"]
+[gd_scene load_steps=11 format=3 uid="uid://bq7cbyoscu7h"]
 
 [ext_resource type="Script" path="res://Components/pressure_button.gd" id="1_7b67y"]
-[ext_resource type="Texture2D" uid="uid://bivdftwqyaism" path="res://MapAssets/Pressure buton.png" id="1_iqi6d"]
+[ext_resource type="Texture2D" uid="uid://dmh3xf0dybgcd" path="res://Pressure buton.png" id="2_intd3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q24rx"]
 friction = 0.0
@@ -10,19 +10,19 @@ friction = 0.0
 radius = 6.0
 height = 32.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0nss"]
-atlas = ExtResource("1_iqi6d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wag1l"]
+atlas = ExtResource("2_intd3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aopbw"]
-atlas = ExtResource("1_iqi6d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gaop"]
+atlas = ExtResource("2_intd3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6c633"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g0nss")
+"texture": SubResource("AtlasTexture_wag1l")
 }],
 "loop": false,
 "name": &"Off",
@@ -30,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aopbw")
+"texture": SubResource("AtlasTexture_1gaop")
 }],
 "loop": false,
 "name": &"Pressed",
@@ -39,6 +39,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anluo"]
 size = Vector2(20, 5)
+
+[sub_resource type="Gradient" id="Gradient_lw3r4"]
+colors = PackedColorArray(1, 0.133333, 0.180392, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y6fak"]
+gradient = SubResource("Gradient_lw3r4")
+fill_from = Vector2(0.577982, 0.977064)
+fill_to = Vector2(0.56422, 0.233945)
 
 [node name="PressureButton" type="StaticBody2D"]
 collision_layer = 16
@@ -52,7 +60,7 @@ shape = SubResource("CapsuleShape2D_u7gx7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6c633")
-animation = &"Off"
+animation = &"Pressed"
 
 [node name="PressureDetector" type="Area2D" parent="."]
 collision_layer = 16
@@ -62,6 +70,15 @@ collision_mask = 9
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_anluo")
 debug_color = Color(0.948372, 3.27289e-06, 0.578629, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-4.76837e-07, 4)
+scale = Vector2(0.40625, 0.1875)
+color = Color(0.643137, 0.0941176, 0.117647, 1)
+energy = 16.0
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_y6fak")
 
 [connection signal="body_entered" from="PressureDetector" to="." method="_on_pressure_detector_body_entered"]
 [connection signal="body_exited" from="PressureDetector" to="." method="_on_pressure_detector_body_exited"]

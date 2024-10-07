@@ -64,6 +64,7 @@ Interact={
 2d_physics/layer_4="Props"
 2d_physics/layer_5="Interactables"
 2d_physics/layer_6="Proyectile"
+2d_physics/layer_7="Portal"
 
 [rendering]
 

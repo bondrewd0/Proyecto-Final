@@ -19,7 +19,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if loop:
 		path_follow_2d.progress+=Speed
 
@@ -28,5 +28,5 @@ func deactivate():
 		Object_to_Move.turn_off()
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	print("Finished")
