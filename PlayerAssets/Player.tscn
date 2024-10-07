@@ -10,9 +10,9 @@
 [ext_resource type="Script" path="res://PlayerAssets/Charge.gd" id="8_f3j5j"]
 [ext_resource type="Script" path="res://PlayerAssets/Knocked.gd" id="9_4ow0p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4mly"]
-resource_local_to_scene = true
-size = Vector2(44.035, 64)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3quv"]
+radius = 13.0
+height = 66.0
 
 [sub_resource type="Animation" id="Animation_266tv"]
 resource_name = "Charge"
@@ -264,13 +264,13 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 size = Vector2(19.0175, 59)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("knocked_state")]
-collision_mask = 10
+collision_mask = 26
 script = ExtResource("1_bkgsq")
 knocked_state = NodePath("StateManager/Knocked")
 
 [node name="PhysicalBod" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
-shape = SubResource("RectangleShape2D_k4mly")
+shape = SubResource("CapsuleShape2D_f3quv")
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimTree")
@@ -327,7 +327,7 @@ script = ExtResource("6_654ok")
 Charge_state = NodePath("../Charge")
 Idle_State = NodePath("../Idle")
 Walk_state = NodePath("../Walk")
-Move_speed = 250.0
+Move_speed = 200.0
 
 [node name="Jump" type="Node" parent="StateManager" node_paths=PackedStringArray("Fall_state", "Charge_state")]
 script = ExtResource("7_4fipo")

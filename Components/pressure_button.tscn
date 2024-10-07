@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq7cbyoscu7h"]
+
+[ext_resource type="Script" path="res://Components/pressure_button.gd" id="1_7b67y"]
+[ext_resource type="Texture2D" uid="uid://bivdftwqyaism" path="res://MapAssets/Pressure buton.png" id="1_iqi6d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q24rx"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7gx7"]
+radius = 6.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0nss"]
+atlas = ExtResource("1_iqi6d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aopbw"]
+atlas = ExtResource("1_iqi6d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6c633"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0nss")
+}],
+"loop": false,
+"name": &"Off",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aopbw")
+}],
+"loop": false,
+"name": &"Pressed",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anluo"]
+size = Vector2(20, 5)
+
+[node name="PressureButton" type="StaticBody2D"]
+collision_layer = 16
+physics_material_override = SubResource("PhysicsMaterial_q24rx")
+script = ExtResource("1_7b67y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u7gx7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6c633")
+animation = &"Off"
+
+[node name="PressureDetector" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureDetector"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_anluo")
+debug_color = Color(0.948372, 3.27289e-06, 0.578629, 0.42)
+
+[connection signal="body_entered" from="PressureDetector" to="." method="_on_pressure_detector_body_entered"]
+[connection signal="body_exited" from="PressureDetector" to="." method="_on_pressure_detector_body_exited"]

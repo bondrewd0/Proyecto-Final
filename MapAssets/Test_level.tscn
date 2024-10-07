@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=34 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="12_ofdem"]
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="14_8nwcj"]
 [ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="14_vqkck"]
+[ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="15_yvg5q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fdpj0"]
 
@@ -6820,7 +6821,7 @@ color = Color(0.0769226, 0.174046, 0.17317, 1)
 position = Vector2(860, 428)
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(601, 447)
+position = Vector2(752, 356)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -6840,11 +6841,16 @@ One_use = true
 [node name="MovingLaser" parent="." instance=ExtResource("14_vqkck")]
 position = Vector2(319, 318)
 curve = SubResource("Curve2D_xmlj4")
-can_stop = true
 stop_time = 5.0
-loop = true
 
 [node name="Device2" parent="." node_paths=PackedStringArray("Attached_Object") instance=ExtResource("14_8nwcj")]
 position = Vector2(753, 401)
 texture = SubResource("AtlasTexture_hcxeo")
 Attached_Object = NodePath("../MovingLaser")
+
+[node name="PressureButton" parent="." node_paths=PackedStringArray("Attached_Object") instance=ExtResource("15_yvg5q")]
+position = Vector2(633, 499)
+Attached_Object = NodePath("../Laser2")
+
+[node name="Laser2" parent="." instance=ExtResource("12_ofdem")]
+position = Vector2(592, 286)

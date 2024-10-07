@@ -30,6 +30,6 @@ func action():
 		next_anim="Off"
 	else:
 		next_anim="On"
-	if Attached_Object.has_method("turn_off"):
+	if Attached_Object.has_method("action"):
 		
-		Attached_Object.turn_off()
+		Attached_Object.action()

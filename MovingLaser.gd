@@ -22,8 +22,13 @@ func _on_timer_timeout():
 	stopped=false
 	
 
-func turn_off():
-	if !$Timer.is_stopped():
-		$Timer.stop()
-	stopped=true
-	laser.turn_off()
+func action():
+	if  !stopped:
+		if !$Timer.is_stopped():
+			$Timer.stop()
+		stopped=true
+		animation_player.pause()
+	else:
+		stopped=false
+		animation_player.play("move")
+	laser.action()
