@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 @export var Active:bool=false
 
+signal entered
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Active:
@@ -25,4 +26,6 @@ func _on_animation_finished():
 
 
 func _on_hit_box_body_entered(body):
+	if Active:
+		entered.emit()
 	print("dentro")

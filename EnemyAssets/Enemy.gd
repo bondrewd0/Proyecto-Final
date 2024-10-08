@@ -19,6 +19,7 @@ func _ready():
 	mov_timer.wait_time=Moving_time
 	sprite.play("Move")
 	mov_timer.start()
+	SignalBus.despawn_all.connect(despawn)
 
 func _physics_process(delta):
 	if global_position.y>LEVEL_BOTTOM:
@@ -78,3 +79,6 @@ func _on_mov_timer_timeout():
 		#print("Moving")
 	#print(mov_timer.wait_time, direction)
 	mov_timer.start()
+
+func despawn():
+	queue_free()

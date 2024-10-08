@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhkfw28n8n5up"]
+
+[ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_dm3kh"]
+[ext_resource type="TileSet" uid="uid://dmcb8ody0f3x5" path="res://MapAssets/Tiles.tres" id="1_l1fea"]
+[ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="3_26itp"]
+
+[node name="TestLvl2" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_dm3kh")
+player = NodePath("Player")
+gameover_Screen = "res://Pantallas/GameOver.tscn"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_l1fea")
+format = 2
+layer_0/tile_data = PackedInt32Array(720907, 524291, 7, 786443, 524291, 8, 720908, 589827, 7, 786444, 589827, 8, 720909, 655363, 7, 786445, 655363, 8)
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(407, 180)
+
+[node name="Player" parent="." instance=ExtResource("3_26itp")]
