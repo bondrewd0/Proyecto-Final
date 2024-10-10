@@ -2,8 +2,11 @@ extends State
 
 @export var Fall_state:State
 @export var Charge_state:State
+signal block_coyote
 func _enter():
 	print("Jump")
+	if Parent.is_on_floor():
+		block_coyote.emit()
 	Parent.velocity.y=jump_force
 	anim_tree.set("parameters/conditions/Jumping",true)
 

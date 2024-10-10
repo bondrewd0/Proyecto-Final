@@ -7,10 +7,12 @@ class_name Player
 @onready var state_manager = $StateManager
 @onready var speed = $Speed
 @onready var anim = $Anim
+@export var health_component:Health_Value
 @export var KNOCBACK_POWER:float=500
 var player_dir:int=0
 @export var knocked_state:State
 var interactable_object:DeviceBase=null
+
 func _ready():
 	state_manager.init(self,anim_tree)
 	pass
@@ -21,6 +23,7 @@ func _process(_delta):
 	anim.text="%s"%aux.get_current_node()
 
 func damaged(enemy_dir:float):
+	health_component.damage(1)
 	state_manager.change_state(knocked_state)
 	anim_player.play("Disable_hitbox")
 	print("ouch ", enemy_dir," ",global_position.x)

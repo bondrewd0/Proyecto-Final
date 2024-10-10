@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmh3xf0dybgcd"
-path="res://.godot/imported/Pressure buton.png-5c3f729b09b8a78a3ba8377968a699e0.ctex"
+uid="uid://cb6l6cgqm6bn3"
+path="res://.godot/imported/teleport.png-1cf599f97636ef5f1fb2927b65192710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pressure buton.png"
-dest_files=["res://.godot/imported/Pressure buton.png-5c3f729b09b8a78a3ba8377968a699e0.ctex"]
+source_file="res://GeneralAssets/teleport.png"
+dest_files=["res://.godot/imported/teleport.png-1cf599f97636ef5f1fb2927b65192710.ctex"]
 
 [params]
 

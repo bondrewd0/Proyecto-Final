@@ -5,10 +5,14 @@ extends State
 @export var Charge_state:State
 @export var Idle_State:State
 @export var Walk_state:State
+@export var Jump_state:State
+@onready var coyote_timer = $Coyote_Timer
 
 @export var LEVEL_BOTTOM:int=600
-
+var can_jump:bool=true
+var has_jumpped:bool=false
 func _enter():
+	coyote_timer.start()
 	print("Fall")
 	anim_tree.set("parameters/conditions/Falling",true)
 
@@ -38,10 +42,22 @@ func _update(_delta:float):
 	
 	return null
 #
-#func _exit_tree():
-	#anim_tree.set("parameters/conditions/Landing",false)
+func _exit():
+	can_jump=true
+	if !coyote_timer.is_stopped():
+		coyote_timer.stop()
+	anim_tree.set("parameters/conditions/Landing",false)
 
 func _handle_inputs(event:InputEvent):
 	if event.is_action_pressed("Attack"):
 		return Charge_state
+	if event.is_action_pressed("Jump") and can_jump:
+		return Jump_state
 	return null
+
+func coyote_timeout():
+	print("NO")
+	can_jump=false
+
+func has_jumped():
+	can_jump=false

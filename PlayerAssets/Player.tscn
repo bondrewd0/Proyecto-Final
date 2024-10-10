@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b1cj3750ycuy4"]
+[gd_scene load_steps=44 format=3 uid="uid://b1cj3750ycuy4"]
 
 [ext_resource type="Script" path="res://PlayerAssets/PlayerController.gd" id="1_bkgsq"]
 [ext_resource type="Texture2D" uid="uid://bx88oaojb8oua" path="res://PlayerAssets/mech 2 full sheet.png" id="1_rxoup"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://PlayerAssets/Jump.gd" id="7_4fipo"]
 [ext_resource type="Script" path="res://PlayerAssets/Charge.gd" id="8_f3j5j"]
 [ext_resource type="Script" path="res://PlayerAssets/Knocked.gd" id="9_4ow0p"]
+[ext_resource type="Script" path="res://Components/HealthComponent.gd" id="10_mtkwd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3quv"]
 radius = 13.0
@@ -263,9 +264,10 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cp16"]
 size = Vector2(19.0175, 59)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("knocked_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "knocked_state")]
 collision_mask = 26
 script = ExtResource("1_bkgsq")
+health_component = NodePath("HP")
 knocked_state = NodePath("StateManager/Knocked")
 
 [node name="PhysicalBod" type="CollisionShape2D" parent="."]
@@ -322,12 +324,17 @@ Jump_State = NodePath("../Jump")
 Fall_State = NodePath("../Fall")
 Move_speed = 250.0
 
-[node name="Fall" type="Node" parent="StateManager" node_paths=PackedStringArray("Charge_state", "Idle_State", "Walk_state")]
+[node name="Fall" type="Node" parent="StateManager" node_paths=PackedStringArray("Charge_state", "Idle_State", "Walk_state", "Jump_state")]
 script = ExtResource("6_654ok")
 Charge_state = NodePath("../Charge")
 Idle_State = NodePath("../Idle")
 Walk_state = NodePath("../Walk")
+Jump_state = NodePath("../Jump")
 Move_speed = 200.0
+
+[node name="Coyote_Timer" type="Timer" parent="StateManager/Fall"]
+wait_time = 0.5
+one_shot = true
 
 [node name="Jump" type="Node" parent="StateManager" node_paths=PackedStringArray("Fall_state", "Charge_state")]
 script = ExtResource("7_4fipo")
@@ -364,6 +371,12 @@ offset_top = -94.0
 offset_right = 33.0
 offset_bottom = -71.0
 
+[node name="HP" type="Node" parent="."]
+script = ExtResource("10_mtkwd")
+Health = 10
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="timeout" from="StateManager/Fall/Coyote_Timer" to="StateManager/Fall" method="coyote_timeout"]
+[connection signal="block_coyote" from="StateManager/Jump" to="StateManager/Fall" method="has_jumped"]
 [connection signal="timeout" from="StateManager/Knocked/BlockMovement" to="StateManager/Knocked" method="_on_block_movement_timeout"]

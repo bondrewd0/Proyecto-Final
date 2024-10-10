@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://b5sjd1ynv3xvk"]
 
-[ext_resource type="Texture2D" uid="uid://dttabuimwjkka" path="res://teleport inactivated.png" id="1_u7k2j"]
-[ext_resource type="Texture2D" uid="uid://cb6l6cgqm6bn3" path="res://teleport.png" id="2_drale"]
+[ext_resource type="Texture2D" uid="uid://dttabuimwjkka" path="res://GeneralAssets/teleport inactivated.png" id="1_u7k2j"]
+[ext_resource type="Texture2D" uid="uid://cb6l6cgqm6bn3" path="res://GeneralAssets/teleport.png" id="2_drale"]
 [ext_resource type="Script" path="res://Components/Portal.gd" id="3_7t6w3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2nhvb"]

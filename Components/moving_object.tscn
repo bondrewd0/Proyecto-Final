@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dui7rqad2l4gl"]
 
-[ext_resource type="Script" path="res://MovingObject.gd" id="1_6hmij"]
+[ext_resource type="Script" path="res://Components/MovingObject.gd" id="1_6hmij"]
 
 [sub_resource type="Animation" id="Animation_5mc2v"]
 length = 0.001
