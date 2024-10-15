@@ -170,7 +170,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ki27j"]
-radius = 17.1172
+radius = 8.0
 
 [node name="Portal" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_nlpx3")

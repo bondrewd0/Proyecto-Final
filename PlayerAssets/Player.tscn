@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b1cj3750ycuy4"]
+[gd_scene load_steps=45 format=3 uid="uid://b1cj3750ycuy4"]
 
 [ext_resource type="Script" path="res://PlayerAssets/PlayerController.gd" id="1_bkgsq"]
 [ext_resource type="Texture2D" uid="uid://bx88oaojb8oua" path="res://PlayerAssets/mech 2 full sheet.png" id="1_rxoup"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://PlayerAssets/Charge.gd" id="8_f3j5j"]
 [ext_resource type="Script" path="res://PlayerAssets/Knocked.gd" id="9_4ow0p"]
 [ext_resource type="Script" path="res://Components/HealthComponent.gd" id="10_mtkwd"]
+[ext_resource type="PackedScene" uid="uid://c4gm4fnx0ter0" path="res://Components/health_bar.tscn" id="11_v26ey"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3quv"]
 radius = 13.0
@@ -374,6 +375,14 @@ offset_bottom = -71.0
 [node name="HP" type="Node" parent="."]
 script = ExtResource("10_mtkwd")
 Health = 10
+
+[node name="PlayerUi" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="PlayerUi" node_paths=PackedStringArray("healthComp") instance=ExtResource("11_v26ey")]
+scale = Vector2(1.485, 1.485)
+max_value = 10.0
+value = 10.0
+healthComp = NodePath("../../HP")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]

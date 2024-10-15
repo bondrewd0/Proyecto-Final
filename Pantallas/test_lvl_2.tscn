@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhkfw28n8n5up"]
+[gd_scene load_steps=5 format=3 uid="uid://dhkfw28n8n5up"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_dm3kh"]
 [ext_resource type="TileSet" uid="uid://dmcb8ody0f3x5" path="res://MapAssets/Tiles.tres" id="1_l1fea"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="3_26itp"]
+[ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="4_v1wws"]
 
 [node name="TestLvl2" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_dm3kh")
@@ -18,3 +19,6 @@ layer_0/tile_data = PackedInt32Array(720907, 524291, 7, 786443, 524291, 8, 72090
 position = Vector2(407, 180)
 
 [node name="Player" parent="." instance=ExtResource("3_26itp")]
+
+[node name="TransitionScreen" parent="." instance=ExtResource("4_v1wws")]
+level_changed = true

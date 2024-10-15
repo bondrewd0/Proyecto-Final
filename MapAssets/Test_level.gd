@@ -4,6 +4,8 @@ extends Node2D
 @onready var player_spawn_point = $PlayerSpawnPoint
 @export var gameover_Screen:String
 @export var Next_level:String=""
+@onready var transition_screen = $TransitionScreen
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -19,13 +21,17 @@ func kill_player():
 	despawn_all()
 	$Mapa.visible=false
 	add_child(aux)
+	
 
 func despawn_all():
 	SignalBus.despawn_all.emit()
 
 func change_level():
+	get_tree().paused=false
 	get_tree().change_scene_to_file(Next_level)
+	
 
 
 func _on_portal_entered():
-	call_deferred("change_level")
+	transition_screen.fade_in()
+	get_tree().paused=true

@@ -28,6 +28,8 @@ func _update(_delta:float):
 			Parent.sprite.flip_h=false
 		else:
 			Parent.sprite.flip_h=true
+	else :
+		Parent.velocity.x = move_toward(Parent.velocity.x, 0, Move_speed)
 	Parent.move_and_slide()
 	if Parent.is_on_floor():
 		#print("plop")

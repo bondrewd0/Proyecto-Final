@@ -26,6 +26,8 @@ func _update(_delta:float):
 			Parent.sprite.flip_h=false
 		else:
 			Parent.sprite.flip_h=true
+	else :
+		Parent.velocity.x = move_toward(Parent.velocity.x, 0, Move_speed)
 	if Parent.velocity.y>0:
 		return Fall_state
 	Parent.move_and_slide()
