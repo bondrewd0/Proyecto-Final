@@ -10,7 +10,13 @@ var proyectile_active:bool=false
 var proyectile_instance=null
 var can_charge:bool=true
 var charge_level:float=1.0
+@export var charge_step:float=0.01:
+	set(new_value):
+		if new_value<=0.5 and new_value>0:
+			charge_step=new_value
 var enemy_ref:Enemy=null
+@onready var charge_meter = $"../../PlayerUi/ChargeLevel"
+
 
 func _enter():
 	if !SignalBus.enemy_marked.is_connected(setmarked_enemy):
@@ -40,6 +46,8 @@ func _handle_inputs(event:InputEvent):
 
 func _exit():
 	anim_tree.set("parameters/conditions/Charging",false)
+	charge_meter.reset()
+	charge_level=0
 
 
 func free_proyectile():
@@ -61,8 +69,9 @@ func fire_proyectile():
 func _update(_delta:float):
 	Parent.move_and_slide()
 	if can_charge:
-		charge_level+=0.01
+		charge_level+=charge_step
 		charge_level=clampf(charge_level,1.0,Max_charge)
+		charge_meter.set_charge_level(charge_level)
 	else:
 		return Idle_State
 	if !Parent.is_on_floor():

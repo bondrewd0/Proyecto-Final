@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dcyna7ldov53d"]
+
+[ext_resource type="Texture2D" uid="uid://cd36kopa6b7h5" path="res://GeneralAssets/SCPUI.png" id="1_suxv3"]
+
+[resource]
+atlas = ExtResource("1_suxv3")
+region = Rect2(64, 128, 16, 64)

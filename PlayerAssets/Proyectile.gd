@@ -5,20 +5,24 @@ class_name Player_Bullet
 @onready var animation_player = $AnimationPlayer
 
 @export var  SPEED = 100.0
+@export var deceleration:float=1.0
 var SPEED_MOD:float=1.0
 var direction:int=0
 signal despawned
 func _ready():
 	#print("pum")
+	deceleration=((SPEED_MOD*deceleration)/2)*-direction
 	animation_player.play("Dissipate")
-	despawner.wait_time=5/SPEED_MOD
+	despawner.wait_time=4/SPEED_MOD
 	#print("Tiempo de vida: ",despawner.wait_time)
 	despawner.start()
+	velocity.x=(SPEED*direction*SPEED_MOD)
 	#print(global_position)
 
 func _physics_process(_delta):
-	velocity.x=SPEED*direction*SPEED_MOD
+	velocity.x+=deceleration
 	move_and_slide()
+	
 
 
 func _on_hit_box_area_entered(area):
