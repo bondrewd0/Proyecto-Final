@@ -6,7 +6,7 @@ extends State
 @export var Fall_State:State
 
 func _enter():
-	print("Walk")
+	#print("Walk")
 	anim_tree.set("parameters/conditions/Walking",true)
 
 func _handle_inputs(event:InputEvent):

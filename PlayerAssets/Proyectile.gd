@@ -28,8 +28,12 @@ func _physics_process(_delta):
 func _on_hit_box_area_entered(area):
 	var parent=area.get_parent()
 	if parent is Enemy:
-		print("Tagged you are it")
+		#print("Tagged you are it")
 		queue_free()
+	if parent is Trap:
+		despawned.emit()
+		queue_free()
+
 
 
 func _on_despawner_timeout():
@@ -42,6 +46,10 @@ func force_despawn():
 
 
 func _on_hit_box_body_entered(body):
+	
 	if body is TileMap:
 		emit_signal("despawned")
+		queue_free()
+	elif body.get_collision_layer()==2:
+		despawned.emit()
 		queue_free()

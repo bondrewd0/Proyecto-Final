@@ -157,6 +157,7 @@ script = ExtResource("1_cuis5")
 Damage = 2
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false

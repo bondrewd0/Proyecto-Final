@@ -4,7 +4,7 @@ extends State
 @export var Charge_state:State
 signal block_coyote
 func _enter():
-	print("Jump")
+	#print("Jump")
 	if Parent.is_on_floor():
 		block_coyote.emit()
 	Parent.velocity.y=jump_force

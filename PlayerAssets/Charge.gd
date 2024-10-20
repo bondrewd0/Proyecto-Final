@@ -22,7 +22,7 @@ func _enter():
 	if !SignalBus.enemy_marked.is_connected(setmarked_enemy):
 		SignalBus.enemy_marked.connect(setmarked_enemy)
 		SignalBus.unmark_enemy.connect(free_marked_enemy)
-	print("Can shoot: ",can_shoot)
+	#print("Can shoot: ",can_shoot)
 	if can_shoot:
 		can_charge=true
 		anim_tree.set("parameters/conditions/Charging",true)
@@ -40,7 +40,7 @@ func _handle_inputs(event:InputEvent):
 			if proyectile_instance:
 				teleport()
 	if event.is_action("Jump"):
-		print("jump")
+		#print("jump")
 		Parent.velocity.y=jump_force
 	return null
 
@@ -51,12 +51,12 @@ func _exit():
 
 
 func free_proyectile():
-	print("despawned")
+	#print("despawned")
 	proyectile_instance=null
 	can_shoot=true
 
 func fire_proyectile():
-	print("amount: ",charge_level)
+	#print("amount: ",charge_level)
 	#print("Fire!")
 	proyectile_instance=proyectile_ref.instantiate()
 	proyectile_instance.global_position=Parent.global_position

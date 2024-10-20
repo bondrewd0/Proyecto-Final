@@ -26,23 +26,24 @@ func damaged(enemy_dir:float):
 	health_component.damage(1)
 	state_manager.change_state(knocked_state)
 	anim_player.play("Disable_hitbox")
-	print("ouch ", enemy_dir," ",global_position.x)
+	#print("ouch ", enemy_dir," ",global_position.x)
 	var dir=global_position.x-enemy_dir
 	if dir<0:
 		dir=-1
 	else:
 		dir=1
 	var knockBack=dir*KNOCBACK_POWER
-	print(knockBack)
+	#print(knockBack)
 	velocity.y=-100
 	velocity.x=knockBack
 	move_and_slide()
 	
 
 func _input(event):
+	
 	if event.is_action_pressed("Interact"):
 		if interactable_object:
-			print(interactable_object)
+			#print(interactable_object)
 			interactable_object.interaction()
 
 

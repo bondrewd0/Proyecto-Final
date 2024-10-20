@@ -65,6 +65,8 @@ Interact={
 2d_physics/layer_5="Interactables"
 2d_physics/layer_6="Proyectile"
 2d_physics/layer_7="Portal"
+2d_physics/layer_8="Laser"
+2d_physics/layer_9="Pickable"
 
 [rendering]
 

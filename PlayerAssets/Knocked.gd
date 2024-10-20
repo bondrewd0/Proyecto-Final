@@ -8,7 +8,7 @@ extends State
 var can_move=false
 
 func _enter():
-	print("Knocked")
+	#print("Knocked")
 	
 	can_move=false
 	block_movement.start()

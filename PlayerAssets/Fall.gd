@@ -13,7 +13,7 @@ var can_jump:bool=true
 var has_jumpped:bool=false
 func _enter():
 	coyote_timer.start()
-	print("Fall")
+	#print("Fall")
 	anim_tree.set("parameters/conditions/Falling",true)
 
 
@@ -58,7 +58,7 @@ func _handle_inputs(event:InputEvent):
 	return null
 
 func coyote_timeout():
-	print("NO")
+	#print("NO")
 	can_jump=false
 
 func has_jumped():
