@@ -33,6 +33,8 @@ func _on_hit_box_area_entered(area):
 	if parent is Trap:
 		despawned.emit()
 		queue_free()
+	if area.get_collision_layer()==8:
+		queue_free()
 
 
 

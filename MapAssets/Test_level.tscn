@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=25 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b7nxyoen0p4a7" path="res://EnemyAssets/Enemy.tscn" id="8_8n565"]
 [ext_resource type="PackedScene" uid="uid://be6t8m8jeem8h" path="res://MapAssets/door.tscn" id="9_3hc7l"]
 [ext_resource type="PackedScene" uid="uid://c8skbmbdrul5j" path="res://MapAssets/HealthOrb.tscn" id="10_6oto6"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://caja.tscn" id="10_gajwi"]
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="12_ofdem"]
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="14_8nwcj"]
 [ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="14_vqkck"]
@@ -19,6 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="16_8qu2y"]
 [ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="16_xq2vv"]
 [ext_resource type="PackedScene" uid="uid://dh7xpycslqo47" path="res://Traps/acido.tscn" id="17_mwcsa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8tdhh"]
+resource_local_to_scene = true
+rough = true
+absorbent = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcxeo"]
 resource_local_to_scene = true
@@ -115,6 +121,11 @@ shadow_enabled = true
 
 [node name="Door" parent="Mapa" instance=ExtResource("9_3hc7l")]
 position = Vector2(940, 463)
+
+[node name="Caja" parent="Mapa" instance=ExtResource("10_gajwi")]
+position = Vector2(640, 348)
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_8tdhh")
 
 [node name="Player" parent="." instance=ExtResource("1_swo2n")]
 position = Vector2(732, 470)

@@ -50,6 +50,7 @@ fill_to = Vector2(0.56422, 0.233945)
 
 [node name="PressureButton" type="StaticBody2D"]
 collision_layer = 16
+collision_mask = 9
 physics_material_override = SubResource("PhysicsMaterial_q24rx")
 script = ExtResource("1_7b67y")
 

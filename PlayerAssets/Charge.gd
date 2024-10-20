@@ -15,6 +15,7 @@ var charge_level:float=1.0
 		if new_value<=0.5 and new_value>0:
 			charge_step=new_value
 var enemy_ref:Enemy=null
+var prop_ref:RigidBody2D=null
 @onready var charge_meter = $"../../PlayerUi/ChargeLevel"
 
 
@@ -22,6 +23,9 @@ func _enter():
 	if !SignalBus.enemy_marked.is_connected(setmarked_enemy):
 		SignalBus.enemy_marked.connect(setmarked_enemy)
 		SignalBus.unmark_enemy.connect(free_marked_enemy)
+	if !SignalBus.prop_marked.is_connected(set_prop_ref):
+		SignalBus.prop_marked.connect(set_prop_ref)
+		SignalBus.unmark_prop.connect(fre_marked_prop)
 	#print("Can shoot: ",can_shoot)
 	if can_shoot:
 		can_charge=true
@@ -87,13 +91,17 @@ func teleport():
 		#print("TP to: ",proyectile_instance.global_position)              
 		Parent.global_position=proyectile_instance.global_position
 		proyectile_instance.force_despawn()
+	elif prop_ref:
+		var current_pos=Parent.global_position
+		Parent.global_position=prop_ref.global_position
+		prop_ref.global_position=current_pos
 	else:
 		var current_pos=Parent.global_position
 		Parent.global_position=enemy_ref.global_position
 		enemy_ref.global_position=current_pos
 		enemy_ref.moved()
 	free_proyectile()
-	
+
 
 func setmarked_enemy(enemy_reference:Enemy):
 	#print(enemy_reference)
@@ -104,3 +112,10 @@ func free_marked_enemy():
 	enemy_ref=null
 	free_proyectile()
 	#print("free")
+
+func set_prop_ref(prop:RigidBody2D):
+	prop_ref=prop
+
+func fre_marked_prop():
+	prop_ref=null
+	free_proyectile()

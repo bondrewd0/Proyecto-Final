@@ -18,6 +18,7 @@ func _enter():
 
 
 func _update(_delta:float):
+	check_col()
 	Parent.velocity.y+=gravity*_delta
 	if Parent.global_position.y>LEVEL_BOTTOM:
 		SignalBus.player_dead.emit()
@@ -63,3 +64,11 @@ func coyote_timeout():
 
 func has_jumped():
 	can_jump=false
+
+func check_col():
+	for i in Parent.get_slide_collision_count():
+		var collision=Parent.get_slide_collision(i)
+		var caja_collider=collision.get_collider()
+		if caja_collider.is_in_group("Cajas") and abs(caja_collider.get_linear_velocity().x)<200:
+			#print(caja_collider.get_linear_velocity().x)
+			caja_collider.apply_central_impulse(-collision.get_normal()*100)
