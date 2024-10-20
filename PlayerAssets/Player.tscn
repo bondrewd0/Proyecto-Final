@@ -389,7 +389,6 @@ value = 10.0
 healthComp = NodePath("../../HP")
 
 [node name="ChargeLevel" type="TextureProgressBar" parent="PlayerUi"]
-anchors_preset = -1
 offset_top = 55.0
 offset_right = 40.0
 offset_bottom = 119.0
