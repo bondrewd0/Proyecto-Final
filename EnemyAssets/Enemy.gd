@@ -58,6 +58,7 @@ func moved():
 	move_and_slide()
 	mov_timer.start()
 	velocity.y=-200
+	SignalBus.unmark_enemy.emit()
 
 
 func _on_mov_timer_timeout():

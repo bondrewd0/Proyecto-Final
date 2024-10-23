@@ -25,7 +25,7 @@ func _enter():
 		SignalBus.unmark_enemy.connect(free_marked_enemy)
 	if !SignalBus.prop_marked.is_connected(set_prop_ref):
 		SignalBus.prop_marked.connect(set_prop_ref)
-		SignalBus.unmark_prop.connect(fre_marked_prop)
+		SignalBus.unmark_prop.connect(free_marked_prop)
 	#print("Can shoot: ",can_shoot)
 	if can_shoot:
 		can_charge=true
@@ -87,19 +87,20 @@ func _update(_delta:float):
 	return null
 
 func teleport():
-	if !enemy_ref:
+	if enemy_ref:
 		#print("TP to: ",proyectile_instance.global_position)              
-		Parent.global_position=proyectile_instance.global_position
-		proyectile_instance.force_despawn()
-	elif prop_ref:
-		var current_pos=Parent.global_position
-		Parent.global_position=prop_ref.global_position
-		prop_ref.global_position=current_pos
-	else:
 		var current_pos=Parent.global_position
 		Parent.global_position=enemy_ref.global_position
 		enemy_ref.global_position=current_pos
 		enemy_ref.moved()
+	elif prop_ref:
+		var current_pos=Parent.global_position
+		Parent.global_position=prop_ref.get_node("PlayerTpPosition").global_position
+		prop_ref.move(current_pos)
+		free_marked_prop()
+	else:
+		Parent.global_position=proyectile_instance.global_position
+		proyectile_instance.force_despawn()
 	free_proyectile()
 
 
@@ -116,6 +117,7 @@ func free_marked_enemy():
 func set_prop_ref(prop:RigidBody2D):
 	prop_ref=prop
 
-func fre_marked_prop():
+
+func free_marked_prop():
 	prop_ref=null
 	free_proyectile()
