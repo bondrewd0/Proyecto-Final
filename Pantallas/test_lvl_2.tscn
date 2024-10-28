@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="3_26itp"]
 [ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="4_v1wws"]
 
-[node name="TestLvl2" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="TestLvl2" type="Node2D" node_paths=PackedStringArray("player", "player_spawn_point")]
 script = ExtResource("1_dm3kh")
 player = NodePath("Player")
-gameover_Screen = "res://Pantallas/GameOver.tscn"
+player_spawn_point = NodePath("PlayerSpawnPoint")
+Level_path = "res://Pantallas/test_lvl_2.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_l1fea")
@@ -21,4 +22,3 @@ position = Vector2(407, 180)
 [node name="Player" parent="." instance=ExtResource("3_26itp")]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("4_v1wws")]
-level_changed = true

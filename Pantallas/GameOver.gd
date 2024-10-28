@@ -2,14 +2,11 @@ extends ColorRect
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+#func _ready():
+	#$AnimationPlayer.play("appear")
+
+func play_anim():
 	$AnimationPlayer.play("appear")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_salir_pressed():
 	print("Exit")
@@ -18,4 +15,8 @@ func _on_salir_pressed():
 
 func _on_reintentar_pressed():
 	print("retry")
-	get_tree().reload_current_scene()
+	SignalBus.reset_game.emit()
+
+func _input(event):
+	if event.is_action_pressed("Testeo"):
+		hide()

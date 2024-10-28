@@ -10,7 +10,6 @@ var next_anim
 func _ready():
 	animplayer.play("Off")
 	next_anim="On"
-	print(Attached_Object)
 
 
 func interaction():

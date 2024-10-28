@@ -47,10 +47,6 @@ func move(pos:Vector2):
 	freeze=true
 	$Delay.start()
 
-func _input(event):
-	if event.is_action("Testeo"):
-		print(global_position.x)
-
 
 #descongelo el objeto
 func _on_delay_timeout():
