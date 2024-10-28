@@ -7,3 +7,5 @@ signal  player_dead
 signal despawn_all
 signal prop_marked(prop:RigidBody2D)
 signal unmark_prop
+signal reset_game
+signal set_checkpoint(checkpoint_position:Vector2)

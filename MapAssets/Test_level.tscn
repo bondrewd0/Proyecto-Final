@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=26 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -41,6 +41,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 5, 13, 0, 0, 0, 0, 119, 12)
 }
 point_count = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_80alk"]
+resource_local_to_scene = true
 
 [node name="Tst_Level" type="Node2D" node_paths=PackedStringArray("player")]
 process_mode = 3
@@ -140,7 +143,7 @@ limit_bottom = 700
 editor_draw_limits = true
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(1317, 310)
+position = Vector2(755, 310)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -155,7 +158,7 @@ LEVEL_BOTTOM = 600
 [node name="Device2" parent="Dispositivos" node_paths=PackedStringArray("Attached_Object") instance=ExtResource("14_8nwcj")]
 position = Vector2(753, 401)
 texture = SubResource("AtlasTexture_hcxeo")
-Attached_Object = NodePath("../../Mapa/Door")
+Attached_Object = NodePath("../../Mapa/Portal")
 One_use = true
 
 [node name="PressureButton" parent="Dispositivos" node_paths=PackedStringArray("Attached_Object") instance=ExtResource("15_yvg5q")]
@@ -190,6 +193,10 @@ level_changed = true
 
 [node name="HealthOrb" parent="." instance=ExtResource("10_6oto6")]
 position = Vector2(816, 473)
+
+[node name="Caja" parent="." instance=ExtResource("10_gajwi")]
+position = Vector2(1320, 308)
+physics_material_override = SubResource("PhysicsMaterial_80alk")
 
 [connection signal="entered" from="Mapa/Portal" to="." method="_on_portal_entered"]
 [connection signal="transition_finished" from="TransitionScreen" to="." method="change_level"]
