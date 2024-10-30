@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dg5kcj88fssnp"]
+
+[ext_resource type="Script" path="res://Components/check_point.gd" id="1_bysyv"]
+[ext_resource type="Texture2D" uid="uid://7jbkr71g1ey7" path="res://PC resource 2.png" id="1_hcw4i"]
+[ext_resource type="Texture2D" uid="uid://ce4csmpw6paxw" path="res://BaseCheckPoint.tres" id="3_wbitr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37kny"]
+atlas = ExtResource("1_hcw4i")
+region = Rect2(37, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miwh3"]
+atlas = ExtResource("1_hcw4i")
+region = Rect2(56, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1kkh"]
+atlas = ExtResource("1_hcw4i")
+region = Rect2(74, 0, 18, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al0tb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37kny")
+}],
+"loop": false,
+"name": &"On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miwh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1kkh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vi6q"]
+radius = 8.0
+height = 36.0
+
+[node name="CheckPoint" type="AnimatedSprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_al0tb")
+script = ExtResource("1_bysyv")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CapsuleShape2D_8vi6q")
+
+[node name="ReferencePoint" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="SaveCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, 22)
+texture = ExtResource("3_wbitr")
+
+[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]
+[connection signal="timeout" from="SaveCooldown" to="." method="_on_save_cooldown_timeout"]

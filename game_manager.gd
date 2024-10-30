@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var death_screen=%Fondo
 @onready var transition_screen = %TransitionScreen
+var last_checkPoint:Vector2
 var next_level_ref=PackedScene
 
 var current_level:Level=null
@@ -28,7 +29,7 @@ func reset():
 	call_deferred("remove_current_level")
 
 func player_check_point(position):
-	pass
+	last_checkPoint=position
 
 func change_level(new_level:PackedScene):
 	action=1
@@ -55,12 +56,15 @@ func _on_transition_screen_transition_finished():
 			add_child(instance)
 			move_child(instance,0)
 			current_level=instance
-			
+			last_checkPoint=Vector2.ZERO
 		2:
 			var instance=next_level_ref.instantiate()
 			add_child(instance)
 			move_child(instance,0)
 			current_level=instance
+			if last_checkPoint != Vector2.ZERO:
+				current_level.set_respawn_location(last_checkPoint)
+				current_level.on_retry()
 			death_screen.hide()
 			action=0
 	get_tree().paused=false
