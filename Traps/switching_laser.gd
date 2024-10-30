@@ -20,4 +20,3 @@ func _on_switch_timeout():
 		laser.turn_on()
 		switch.wait_time=On_time
 	switch.start()
-	print(switch.wait_time)

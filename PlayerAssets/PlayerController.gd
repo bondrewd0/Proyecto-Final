@@ -40,7 +40,8 @@ func damaged(enemy_dir:float):
 	
 
 func _input(event):
-	
+	if event.is_action_pressed("Restart"):
+		SignalBus.reset_game.emit()
 	if event.is_action_pressed("Interact"):
 		if interactable_object:
 			#print(interactable_object)

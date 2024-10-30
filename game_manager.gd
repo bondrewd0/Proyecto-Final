@@ -6,7 +6,7 @@ extends Node2D
 @onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
 var last_checkPoint:Vector2
-var next_level_ref=PackedScene
+var next_level_ref:PackedScene
 
 var current_level:Level=null
 var on_menu:bool=false
@@ -71,8 +71,6 @@ func _on_transition_screen_transition_finished():
 
 
 func _input(event):
-	if event.is_action("Restart"):
-		SignalBus.reset_game.emit()
 	if event.is_action_pressed("Pause"):
 		if on_menu:
 			get_tree().quit()
