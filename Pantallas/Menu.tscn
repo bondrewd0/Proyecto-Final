@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://1h6t4t5rjx4p"]
+
+[ext_resource type="Script" path="res://Pantallas/Menu.gd" id="1_s6wbc"]
+[ext_resource type="Texture2D" uid="uid://pg51tccak0cr" path="res://GeneralAssets/GUI.png" id="2_p8ixt"]
+[ext_resource type="FontFile" uid="uid://d1488ud3ildl5" path="res://GeneralAssets/Dank-Depths.ttf" id="3_371di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1a1i"]
+atlas = ExtResource("2_p8ixt")
+region = Rect2(160, 160, 112, 32)
+
+[node name="MenuScene" type="Node2D"]
+script = ExtResource("1_s6wbc")
+
+[node name="Menu" type="ColorRect" parent="."]
+top_level = true
+light_mask = 0
+visibility_layer = 512
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056532, 0.0545094, 0.170882, 1)
+
+[node name="Play" type="TextureButton" parent="Menu"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 310.0
+offset_right = 534.0
+offset_bottom = 350.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Play"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 7.0
+offset_right = 129.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_371di")
+text = "PLAY
+"
+
+[node name="Options" type="TextureButton" parent="Menu"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 357.0
+offset_right = 606.0
+offset_bottom = 397.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 107.0
+offset_bottom = 47.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_371di")
+text = "SETTINGS"
+
+[node name="Exit" type="TextureButton" parent="Menu"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 412.0
+offset_right = 606.0
+offset_bottom = 452.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Exit"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 46.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_371di")
+text = "QUIT"
+
+[node name="Tittle" type="RichTextLabel" parent="Menu"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 142.0
+offset_right = 799.0
+offset_bottom = 225.0
+theme_override_fonts/bold_font = ExtResource("3_371di")
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]THE STRANDRED DORID"
+
+[node name="Credits" type="RichTextLabel" parent="Menu"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 613.0
+offset_right = 90.0
+offset_bottom = 647.0
+theme_override_font_sizes/normal_font_size = 10
+text = "By: Diego Agustin Chanique"
+
+[connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]

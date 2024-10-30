@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dg5kcj88fssnp"]
 
 [ext_resource type="Script" path="res://Components/check_point.gd" id="1_bysyv"]
-[ext_resource type="Texture2D" uid="uid://7jbkr71g1ey7" path="res://PC resource 2.png" id="1_hcw4i"]
-[ext_resource type="Texture2D" uid="uid://ce4csmpw6paxw" path="res://BaseCheckPoint.tres" id="3_wbitr"]
+[ext_resource type="Texture2D" uid="uid://7jbkr71g1ey7" path="res://Components/PC resource 2.png" id="1_hcw4i"]
+[ext_resource type="Texture2D" uid="uid://ce4csmpw6paxw" path="res://Components/BaseCheckPoint.tres" id="3_wbitr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37kny"]
 atlas = ExtResource("1_hcw4i")

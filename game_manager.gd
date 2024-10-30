@@ -15,11 +15,7 @@ func _ready():
 	SignalBus.player_dead.connect(player_death)
 	SignalBus.set_checkpoint.connect(player_check_point)
 	SignalBus.pass_level.connect(change_level)
-	var instance=Initial_scene.instantiate()
-	add_child(instance)
-	move_child(instance,0)
-	current_level=instance
-	print(current_level)
+	
 
 func reset():
 	action=2
@@ -74,3 +70,11 @@ func _on_transition_screen_transition_finished():
 func _input(event):
 	if event.is_action("Restart"):
 		SignalBus.reset_game.emit()
+
+
+func _on_menu_scene_begin_game():
+	var instance=Initial_scene.instantiate()
+	add_child(instance)
+	move_child(instance,0)
+	current_level=instance
+	print(current_level)

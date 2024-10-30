@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://y2ryudoh7cr6"]
 
-[ext_resource type="Material" uid="uid://by21qvkbsvwdu" path="res://TransitionEffect.tres" id="1_qsarb"]
+[ext_resource type="Material" uid="uid://by21qvkbsvwdu" path="res://Pantallas/TransitionEffect.tres" id="1_qsarb"]
 [ext_resource type="Script" path="res://Pantallas/transition_screen.gd" id="1_yf5l4"]
 
 [sub_resource type="Animation" id="Animation_j342r"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7jbkr71g1ey7"
-path="res://.godot/imported/PC resource 2.png-64094b6ae00368a045704453113eecc4.ctex"
+uid="uid://ban0ypi473ps3"
+path="res://.godot/imported/acido.png-631ceb0f14b7490ab073a24b47dbbfc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PC resource 2.png"
-dest_files=["res://.godot/imported/PC resource 2.png-64094b6ae00368a045704453113eecc4.ctex"]
+source_file="res://GeneralAssets/acido.png"
+dest_files=["res://.godot/imported/acido.png-631ceb0f14b7490ab073a24b47dbbfc8.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh7xpycslqo47"]
 
-[ext_resource type="Texture2D" uid="uid://ban0ypi473ps3" path="res://acido.png" id="1_m2ec5"]
+[ext_resource type="Texture2D" uid="uid://ban0ypi473ps3" path="res://GeneralAssets/acido.png" id="1_m2ec5"]
 [ext_resource type="Script" path="res://Traps/AcidBehaiviour.gd" id="2_vhkfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f3iq"]
