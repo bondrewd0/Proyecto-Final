@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca6bsswqwr313"]
+
+[ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="1_18bjt"]
+[ext_resource type="Script" path="res://Traps/switching_laser.gd" id="1_c1p3h"]
+
+[node name="SwitchingLaser" type="Node2D"]
+script = ExtResource("1_c1p3h")
+
+[node name="Laser" parent="." instance=ExtResource("1_18bjt")]
+
+[node name="Switch" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Switch" to="." method="_on_switch_timeout"]

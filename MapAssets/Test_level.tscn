@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=28 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="15_yvg5q"]
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="16_8qu2y"]
 [ext_resource type="PackedScene" uid="uid://dh7xpycslqo47" path="res://Traps/acido.tscn" id="17_mwcsa"]
+[ext_resource type="PackedScene" uid="uid://ca6bsswqwr313" path="res://Traps/switching_laser.tscn" id="20_3siwv"]
 [ext_resource type="PackedScene" uid="uid://dg5kcj88fssnp" path="res://Components/check_point.tscn" id="21_b035e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8tdhh"]
@@ -189,6 +190,11 @@ position = Vector2(592, 286)
 
 [node name="Acido" parent="Trampas" instance=ExtResource("17_mwcsa")]
 position = Vector2(496, 512)
+
+[node name="SwitchingLaser" parent="Trampas" instance=ExtResource("20_3siwv")]
+position = Vector2(936, 299)
+On_time = 2.0
+Off_time = 5.0
 
 [node name="HealthOrb" parent="." instance=ExtResource("10_6oto6")]
 position = Vector2(816, 473)
