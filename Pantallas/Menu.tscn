@@ -86,7 +86,7 @@ offset_bottom = 225.0
 theme_override_fonts/bold_font = ExtResource("3_371di")
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
-text = "[b]THE STRANDRED DORID"
+text = "[b]THE STRANDRED DROID"
 
 [node name="Credits" type="RichTextLabel" parent="Menu"]
 layout_mode = 0

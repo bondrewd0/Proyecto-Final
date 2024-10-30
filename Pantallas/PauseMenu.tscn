@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://7icd0fup3aqy"]
+
+[ext_resource type="Script" path="res://Pantallas/PauseMenu.gd" id="1_oxqqn"]
+[ext_resource type="Texture2D" uid="uid://pg51tccak0cr" path="res://GeneralAssets/GUI.png" id="2_xtwmq"]
+[ext_resource type="FontFile" uid="uid://d1488ud3ildl5" path="res://GeneralAssets/Dank-Depths.ttf" id="3_nx3b5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1a1i"]
+atlas = ExtResource("2_xtwmq")
+region = Rect2(160, 160, 112, 32)
+
+[node name="Pause" type="ColorRect"]
+process_mode = 2
+top_level = true
+light_mask = 0
+visibility_layer = 512
+z_index = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056532, 0.0545094, 0.170882, 1)
+script = ExtResource("1_oxqqn")
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 310.0
+offset_right = 534.0
+offset_bottom = 350.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Continue"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 112.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_nx3b5")
+text = "CONTINUE"
+
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 381.0
+offset_right = 534.0
+offset_bottom = 421.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Exit"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 46.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_nx3b5")
+text = "QUIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 142.0
+offset_right = 799.0
+offset_bottom = 182.0
+theme_override_fonts/bold_font = ExtResource("3_nx3b5")
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]PAUSED"
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

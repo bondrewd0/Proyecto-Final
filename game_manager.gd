@@ -1,16 +1,19 @@
 extends Node2D
 
 @export var Initial_scene:PackedScene
+@onready var pause = %Pause
 
-@onready var death_screen=%Fondo
+@onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
 var last_checkPoint:Vector2
 var next_level_ref=PackedScene
 
 var current_level:Level=null
+var on_menu:bool=false
 
 var action:int=0
 func _ready():
+	on_menu=true
 	SignalBus.reset_game.connect(reset)
 	SignalBus.player_dead.connect(player_death)
 	SignalBus.set_checkpoint.connect(player_check_point)
@@ -70,6 +73,13 @@ func _on_transition_screen_transition_finished():
 func _input(event):
 	if event.is_action("Restart"):
 		SignalBus.reset_game.emit()
+	if event.is_action_pressed("Pause"):
+		if on_menu:
+			get_tree().quit()
+		else :
+			on_menu=true
+			pause.show()
+			get_tree().paused=true
 
 
 func _on_menu_scene_begin_game():
@@ -78,3 +88,8 @@ func _on_menu_scene_begin_game():
 	move_child(instance,0)
 	current_level=instance
 	print(current_level)
+	on_menu=false
+
+
+func _on_pause_unpause():
+	on_menu=false

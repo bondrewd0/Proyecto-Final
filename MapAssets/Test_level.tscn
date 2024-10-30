@@ -47,7 +47,7 @@ point_count = 2
 resource_local_to_scene = true
 
 [node name="Tst_Level" type="Node2D" node_paths=PackedStringArray("player", "player_spawn_point", "respawnPoint")]
-process_mode = 3
+process_mode = 1
 script = ExtResource("1_phd3e")
 player = NodePath("Player")
 player_spawn_point = NodePath("PlayerSpawnPoint")
