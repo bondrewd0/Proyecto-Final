@@ -35,12 +35,12 @@ func _update(_delta:float):
 	if Parent.is_on_floor():
 		#print("plop")
 		anim_tree.set("parameters/conditions/Falling",false)
-		anim_parameters.travel("Land")
+		
 		if direction:
 			
 			return Walk_state
 		else:
-			
+			anim_parameters.travel("Land")
 			return Idle_State
 	
 	return null
@@ -72,3 +72,10 @@ func check_col():
 		if caja_collider.is_in_group("Cajas") and abs(caja_collider.get_linear_velocity().x)<200:
 			#print(caja_collider.get_linear_velocity().x)
 			caja_collider.apply_central_impulse(-collision.get_normal()*100)
+
+func _ready():
+	SignalBus.set_bottom.connect(set_minimun_fall)
+
+func set_minimun_fall(value:float):
+	print(value)
+	LEVEL_BOTTOM=value

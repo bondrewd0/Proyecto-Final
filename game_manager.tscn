@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_ckkma"]
 [ext_resource type="PackedScene" uid="uid://1h6t4t5rjx4p" path="res://Pantallas/Menu.tscn" id="2_4ykws"]
-[ext_resource type="PackedScene" uid="uid://e0tsv3kauf0x" path="res://MapAssets/Test_level.tscn" id="2_qohg0"]
+[ext_resource type="PackedScene" uid="uid://bamccqwmlurnt" path="res://Pantallas/level_1.tscn" id="2_dtfqu"]
 [ext_resource type="PackedScene" uid="uid://demy82vnw23k5" path="res://Pantallas/GameOver.tscn" id="3_04rmv"]
 [ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="4_fsrbq"]
 [ext_resource type="PackedScene" uid="uid://7icd0fup3aqy" path="res://Pantallas/PauseMenu.tscn" id="6_2ww2e"]
@@ -10,7 +10,7 @@
 [node name="GameManager" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ckkma")
-Initial_scene = ExtResource("2_qohg0")
+Initial_scene = ExtResource("2_dtfqu")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3

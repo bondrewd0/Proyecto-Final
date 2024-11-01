@@ -202,11 +202,6 @@ advance_condition = &"Falling"
 advance_mode = 2
 advance_condition = &"Walking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fgd5u"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"Walking"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eomep"]
 switch_mode = 2
 advance_mode = 2
@@ -249,6 +244,10 @@ advance_condition = &"Idle"
 advance_mode = 2
 advance_condition = &"Walking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cfbsx"]
+advance_mode = 2
+advance_condition = &"Walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rra4b"]
 states/Charge/node = SubResource("AnimationNodeAnimation_cfy7t")
 states/Charge/position = Vector2(503, 19)
@@ -263,7 +262,7 @@ states/MidJump/position = Vector2(526, 186)
 states/Start/position = Vector2(210, 92)
 states/Walk/node = SubResource("AnimationNodeAnimation_q7v1k")
 states/Walk/position = Vector2(694, 86)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b4rx0"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_aptly"), "Idle", "MidJump", SubResource("AnimationNodeStateMachineTransition_maayf"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_vhorx"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_fgd5u"), "Jump", "MidJump", SubResource("AnimationNodeStateMachineTransition_eomep"), "MidJump", "Land", SubResource("AnimationNodeStateMachineTransition_7f1ok"), "Walk", "MidJump", SubResource("AnimationNodeStateMachineTransition_j3oaq"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_ei32j"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_xm5bj"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_016kj"), "Idle", "Charge", SubResource("AnimationNodeStateMachineTransition_lelug"), "Walk", "Charge", SubResource("AnimationNodeStateMachineTransition_8keic"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_mlqci"), "Charge", "Walk", SubResource("AnimationNodeStateMachineTransition_qh86g")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b4rx0"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_aptly"), "Idle", "MidJump", SubResource("AnimationNodeStateMachineTransition_maayf"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_vhorx"), "Jump", "MidJump", SubResource("AnimationNodeStateMachineTransition_eomep"), "MidJump", "Land", SubResource("AnimationNodeStateMachineTransition_7f1ok"), "Walk", "MidJump", SubResource("AnimationNodeStateMachineTransition_j3oaq"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_ei32j"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_xm5bj"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_016kj"), "Idle", "Charge", SubResource("AnimationNodeStateMachineTransition_lelug"), "Walk", "Charge", SubResource("AnimationNodeStateMachineTransition_8keic"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_mlqci"), "Charge", "Walk", SubResource("AnimationNodeStateMachineTransition_qh86g"), "MidJump", "Walk", SubResource("AnimationNodeStateMachineTransition_cfbsx")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cp16"]
 size = Vector2(19.0175, 59)
