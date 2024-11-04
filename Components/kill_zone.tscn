@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ogvbbgegun10"]
+
+[node name="KillZone" type="Area2D"]
+collision_layer = 1024

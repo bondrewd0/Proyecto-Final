@@ -52,6 +52,9 @@ func _on_hitbox_area_entered(area):
 	var parent=area.get_parent()
 	if parent is DeviceBase:
 		interactable_object=parent
+	if area.collision_layer==1024:
+		SignalBus.player_dead.emit()
+		pass
 
 
 func _on_hitbox_area_exited(area):

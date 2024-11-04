@@ -83,6 +83,7 @@ Pause={
 2d_physics/layer_8="Laser"
 2d_physics/layer_9="Pickable"
 2d_physics/layer_10="CheckPoint"
+2d_physics/layer_11="DeathZone"
 
 [rendering]
 

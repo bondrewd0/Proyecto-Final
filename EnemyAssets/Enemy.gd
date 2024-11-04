@@ -9,7 +9,7 @@ const SPEED = 300.0
 @onready var sprite = $AnimatedSprite2D
 @export var MOVE_SPEED:float=100
 @export_range(1.0,10.0) var Moving_time:float=1.0
-@export var LEVEL_BOTTOM:int=100
+
 var marked:bool=false
 var direction:int=1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,10 +22,8 @@ func _ready():
 	SignalBus.despawn_all.connect(despawn)
 
 func _physics_process(delta):
-	if global_position.y>LEVEL_BOTTOM:
-		print("CONCHETUMAEE")
-		SignalBus.unmark_enemy.emit()
-		queue_free()
+	SignalBus.unmark_enemy.emit()
+	queue_free()
 	if can_move:
 		velocity.x=direction*MOVE_SPEED
 	if not is_on_floor():
@@ -43,6 +41,9 @@ func _on_hitbox_area_entered(area):
 		marked=true
 		SignalBus.emit_signal("enemy_marked",self)
 		unmarktimer.start()
+	if area.collision_layer==1024:
+		SignalBus.unmark_enemy.emit()
+		queue_free()
 
 
 func _on_un_mark_timer_timeout():

@@ -8,7 +8,7 @@ extends State
 @export var Jump_state:State
 @onready var coyote_timer = $Coyote_Timer
 
-@export var LEVEL_BOTTOM:int=600
+
 var can_jump:bool=true
 var has_jumpped:bool=false
 func _enter():
@@ -20,8 +20,6 @@ func _enter():
 func _update(_delta:float):
 	check_col()
 	Parent.velocity.y+=gravity*_delta
-	if Parent.global_position.y>LEVEL_BOTTOM:
-		SignalBus.player_dead.emit()
 	var direction=Input.get_axis("Left","Right")
 	if direction:
 		Parent.velocity.x=Move_speed*direction
@@ -73,9 +71,4 @@ func check_col():
 			#print(caja_collider.get_linear_velocity().x)
 			caja_collider.apply_central_impulse(-collision.get_normal()*100)
 
-func _ready():
-	SignalBus.set_bottom.connect(set_minimun_fall)
 
-func set_minimun_fall(value:float):
-	print(value)
-	LEVEL_BOTTOM=value
