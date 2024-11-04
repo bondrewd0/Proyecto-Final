@@ -13,8 +13,8 @@ func _enter():
 
 func _handle_inputs(event:InputEvent):
 	if event.is_action_pressed("Down") and Parent.is_on_floor():
-		Parent.position.y+=1
-		
+		Parent.position.y+=2
+		Parent.move_and_slide()
 	var direction=Input.get_axis("Left","Right")
 	if direction:
 		return Walk_State

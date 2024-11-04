@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdi8q5chc6xdw"]
+
+[ext_resource type="Script" path="res://Pantallas/nivel_2.gd" id="1_7nfth"]
+[ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/background1.png" id="2_s76gt"]
+[ext_resource type="TileSet" uid="uid://c52saool6ienv" path="res://MapAssets/Area1.tres" id="2_ypgnt"]
+[ext_resource type="Texture2D" uid="uid://bidb03omr6p27" path="res://MapAssets/background2.png" id="3_jvphp"]
+[ext_resource type="Texture2D" uid="uid://cc1ub0ggwrfid" path="res://MapAssets/background3.png" id="4_08drv"]
+[ext_resource type="Texture2D" uid="uid://ket55fek7m8y" path="res://MapAssets/background4.png" id="5_s6jxu"]
+[ext_resource type="Texture2D" uid="uid://c4ynoeatl1gjn" path="res://MapAssets/background5.png" id="6_7gjuw"]
+[ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="7_1h0af"]
+[ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="9_8dkti"]
+
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "player_spawn_point", "respawnPoint", "portal")]
+script = ExtResource("1_7nfth")
+player = NodePath("Player")
+player_spawn_point = NodePath("PlayerSpawn")
+respawnPoint = NodePath("RespawnPoint")
+Level_path = "res://Pantallas/nivel_2.tscn"
+portal = NodePath("Portal")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_ypgnt")
+format = 2
+
+[node name="BackgroundLayer" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="BackgroundLayer"]
+color = Color(0.454403, 0.460171, 0.412771, 1)
+
+[node name="Background" type="ParallaxLayer" parent="BackgroundLayer"]
+motion_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background"]
+offset_right = 1024.0
+offset_bottom = 576.0
+texture = ExtResource("2_s76gt")
+
+[node name="Background2" type="ParallaxLayer" parent="BackgroundLayer"]
+motion_scale = Vector2(0.035, 0)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background2"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_jvphp")
+
+[node name="Background3" type="ParallaxLayer" parent="BackgroundLayer"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background3"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_08drv")
+
+[node name="Background4" type="ParallaxLayer" parent="BackgroundLayer"]
+motion_scale = Vector2(0.8, 0.2)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background4"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_s6jxu")
+
+[node name="Background5" type="ParallaxLayer" parent="BackgroundLayer"]
+motion_scale = Vector2(1, 0)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background5"]
+offset_left = -16.0
+offset_right = 1008.0
+offset_bottom = 576.0
+texture = ExtResource("6_7gjuw")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(26, 381)
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+
+[node name="Player" parent="." node_paths=PackedStringArray("health_component", "knocked_state") instance=ExtResource("7_1h0af")]
+position = Vector2(383, 388)
+scale = Vector2(0.5, 0.5)
+health_component = NodePath("")
+knocked_state = NodePath("")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+
+[node name="Portal" parent="." instance=ExtResource("9_8dkti")]

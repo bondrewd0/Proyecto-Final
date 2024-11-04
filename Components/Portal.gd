@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+class_name  Portal
 @export var Active:bool=false
 
 signal entered
@@ -28,4 +29,4 @@ func _on_animation_finished():
 func _on_hit_box_body_entered(body):
 	if Active:
 		entered.emit()
-	print("dentro")
+		print("dentro")

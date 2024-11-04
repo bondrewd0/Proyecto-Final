@@ -5,10 +5,12 @@ class_name Level
 @export var respawnPoint:Marker2D
 @export var Next_level:PackedScene
 @export var Level_path:String
+@export var portal:Portal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.position=player_spawn_point.position
 	respawnPoint.global_position=player_spawn_point.global_position
+	portal.entered.connect(_on_portal_entered)
 
 func reset_level():
 	print("MANCO")

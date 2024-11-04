@@ -10,8 +10,9 @@ func _enter():
 	anim_tree.set("parameters/conditions/Walking",true)
 
 func _handle_inputs(event:InputEvent):
-	if event.is_action_pressed("Down"):
-		Parent.position.y+=1
+	if event.is_action_pressed("Down") and Parent.is_on_floor():
+		Parent.position.y+=2
+		Parent.move_and_slide()
 	if event.is_action_pressed("Jump"):
 		return Jump_State
 	return null
