@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brl68bamwbkch" path="res://Traps/laser.png" id="2_i2cg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw2uy"]
-size = Vector2(13, 91)
+size = Vector2(13, 76)
 
 [sub_resource type="Animation" id="Animation_81geh"]
 resource_name = "Move"
@@ -160,8 +160,7 @@ Damage = 2
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
-position = Vector2(2.5, 36.5)
+position = Vector2(2.5, 44)
 shape = SubResource("RectangleShape2D_jw2uy")
 disabled = true
 

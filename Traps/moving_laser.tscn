@@ -9,6 +9,10 @@ script = ExtResource("2_34yoo")
 can_stop = false
 stop_time = 1.0
 Object_to_Move = NodePath("Laser")
+speed_scale = 0.5
+
+[node name="PathFollow2D" parent="." index="0"]
+rotates = false
 
 [node name="Laser" parent="." index="2" instance=ExtResource("3_akmkg")]
 

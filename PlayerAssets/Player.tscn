@@ -348,7 +348,14 @@ script = ExtResource("7_4fipo")
 Fall_state = NodePath("../Fall")
 Charge_state = NodePath("../Charge")
 Move_speed = 250.0
-jump_force = -500.0
+jump_force = -450.0
+
+[node name="Jump2" type="Node" parent="StateManager" node_paths=PackedStringArray("Fall_state", "Charge_state")]
+script = ExtResource("7_4fipo")
+Fall_state = NodePath("../Fall")
+Charge_state = NodePath("../Charge")
+Move_speed = 250.0
+jump_force = -450.0
 
 [node name="Charge" type="Node" parent="StateManager" node_paths=PackedStringArray("Idle_State", "Fall_State")]
 script = ExtResource("8_f3j5j")
@@ -407,4 +414,5 @@ script = ExtResource("14_pbf5w")
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="timeout" from="StateManager/Fall/Coyote_Timer" to="StateManager/Fall" method="coyote_timeout"]
 [connection signal="block_coyote" from="StateManager/Jump" to="StateManager/Fall" method="has_jumped"]
+[connection signal="block_coyote" from="StateManager/Jump2" to="StateManager/Fall" method="has_jumped"]
 [connection signal="timeout" from="StateManager/Knocked/BlockMovement" to="StateManager/Knocked" method="_on_block_movement_timeout"]
