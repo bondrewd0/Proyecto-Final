@@ -32,6 +32,7 @@ func player_check_point(position):
 
 func change_level(new_level:PackedScene):
 	action=1
+	print(new_level)
 	get_tree().paused=true
 	next_level_ref=new_level
 	transition_screen.fade_in()

@@ -3,7 +3,7 @@ class_name Level
 @export var player:Player=null
 @export var player_spawn_point:Marker2D
 @export var respawnPoint:Marker2D
-@export var Next_level:PackedScene
+@export var Next_level_path:String
 @export var Level_path:String
 @export var portal:Portal
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,9 @@ func despawn_all():
 
 
 func _on_portal_entered():
-	SignalBus.pass_level.emit(Next_level)
+	var next_level_ref=load(Next_level_path) as PackedScene
+	print(next_level_ref)
+	SignalBus.pass_level.emit(next_level_ref)
 
 func on_retry():
 	player.global_position=respawnPoint.global_position

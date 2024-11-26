@@ -6,6 +6,7 @@ extends ColorRect
 	#$AnimationPlayer.play("appear")
 
 func play_anim():
+	$Reintentar.disabled=false
 	$AnimationPlayer.play("appear")
 
 func _on_salir_pressed():
@@ -15,8 +16,9 @@ func _on_salir_pressed():
 
 func _on_reintentar_pressed():
 	print("retry")
+	$Reintentar.disabled=true
 	SignalBus.reset_game.emit()
-
+	
 func _input(event):
 	if event.is_action_pressed("Testeo"):
 		hide()
