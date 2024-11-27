@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bamccqwmlurnt"]
 
 [ext_resource type="Script" path="res://Pantallas/level_1.gd" id="1_tc3yl"]
-[ext_resource type="TileSet" uid="uid://c52saool6ienv" path="res://MapAssets/Area1.tres" id="3_1nijt"]
-[ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/background1.png" id="3_h6dv6"]
-[ext_resource type="Texture2D" uid="uid://bidb03omr6p27" path="res://MapAssets/background2.png" id="4_ecx08"]
-[ext_resource type="Texture2D" uid="uid://cc1ub0ggwrfid" path="res://MapAssets/background3.png" id="5_hiqrg"]
-[ext_resource type="Texture2D" uid="uid://ket55fek7m8y" path="res://MapAssets/background4.png" id="6_125c0"]
-[ext_resource type="Texture2D" uid="uid://c4ynoeatl1gjn" path="res://MapAssets/background5.png" id="7_6cy7d"]
+[ext_resource type="TileSet" uid="uid://c52saool6ienv" path="res://MapAssets/Area1/Area1.tres" id="3_1nijt"]
+[ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/Area1/background1.png" id="3_qdmpk"]
+[ext_resource type="Texture2D" uid="uid://bidb03omr6p27" path="res://MapAssets/Area1/background2.png" id="4_mj5xr"]
+[ext_resource type="Texture2D" uid="uid://cc1ub0ggwrfid" path="res://MapAssets/Area1/background3.png" id="5_adlxj"]
+[ext_resource type="Texture2D" uid="uid://ket55fek7m8y" path="res://MapAssets/Area1/background4.png" id="6_y845t"]
+[ext_resource type="Texture2D" uid="uid://c4ynoeatl1gjn" path="res://MapAssets/Area1/background5.png" id="7_pjlp6"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="8_85m5x"]
 [ext_resource type="PackedScene" uid="uid://b7nxyoen0p4a7" path="res://EnemyAssets/Enemy.tscn" id="8_d1a72"]
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="9_6vrbl"]
@@ -51,7 +51,7 @@ motion_scale = Vector2(0, 0)
 [node name="TextureRect" type="TextureRect" parent="TileMap/BackgroundLayer/Background"]
 offset_right = 1024.0
 offset_bottom = 576.0
-texture = ExtResource("3_h6dv6")
+texture = ExtResource("3_qdmpk")
 
 [node name="Background2" type="ParallaxLayer" parent="TileMap/BackgroundLayer"]
 motion_scale = Vector2(0.035, 0)
@@ -60,7 +60,7 @@ motion_mirroring = Vector2(1024, 0)
 [node name="TextureRect" type="TextureRect" parent="TileMap/BackgroundLayer/Background2"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_ecx08")
+texture = ExtResource("4_mj5xr")
 
 [node name="Background3" type="ParallaxLayer" parent="TileMap/BackgroundLayer"]
 motion_scale = Vector2(0.6, 0)
@@ -69,7 +69,7 @@ motion_mirroring = Vector2(1024, 0)
 [node name="TextureRect" type="TextureRect" parent="TileMap/BackgroundLayer/Background3"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("5_hiqrg")
+texture = ExtResource("5_adlxj")
 
 [node name="Background4" type="ParallaxLayer" parent="TileMap/BackgroundLayer"]
 motion_scale = Vector2(0.8, 0.2)
@@ -78,7 +78,7 @@ motion_mirroring = Vector2(1024, 0)
 [node name="TextureRect" type="TextureRect" parent="TileMap/BackgroundLayer/Background4"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_125c0")
+texture = ExtResource("6_y845t")
 
 [node name="Background5" type="ParallaxLayer" parent="TileMap/BackgroundLayer"]
 motion_scale = Vector2(1, 0)
@@ -88,7 +88,7 @@ motion_mirroring = Vector2(1024, 0)
 offset_left = -16.0
 offset_right = 1008.0
 offset_bottom = 576.0
-texture = ExtResource("7_6cy7d")
+texture = ExtResource("7_pjlp6")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(316, 349)
@@ -101,8 +101,9 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
-limit_left = 0
+limit_left = 50
 limit_top = 0
+limit_right = 2350
 
 [node name="Portal" parent="." instance=ExtResource("9_6vrbl")]
 position = Vector2(2120, 348)

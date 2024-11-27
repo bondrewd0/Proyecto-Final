@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddv41nvfdxqvc"]
 
-[ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/1. main platforms.png" id="1_gykn8"]
+[ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="1_gykn8"]
 [ext_resource type="Script" path="res://Components/deviceBase.gd" id="2_aiwfa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kksy"]
