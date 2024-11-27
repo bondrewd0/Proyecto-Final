@@ -16,6 +16,7 @@ var direction:int=1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move:bool=true
 func _ready():
+	print("chekc")
 	mov_timer.wait_time=Moving_time
 	sprite.play("Move")
 	mov_timer.start()

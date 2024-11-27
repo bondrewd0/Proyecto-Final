@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://e0tsv3kauf0x"]
+[gd_scene load_steps=28 format=3 uid="uid://e0tsv3kauf0x"]
 
 [ext_resource type="Script" path="res://MapAssets/Test_level.gd" id="1_phd3e"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="1_swo2n"]
-[ext_resource type="PackedScene" uid="uid://dhkfw28n8n5up" path="res://Pantallas/test_lvl_2.tscn" id="2_0bfjb"]
 [ext_resource type="TileSet" uid="uid://dmcb8ody0f3x5" path="res://MapAssets/Tiles.tres" id="2_5o6kq"]
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/1. main platforms.png" id="2_quwey"]
 [ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/background1.png" id="3_ash3c"]
@@ -59,7 +58,6 @@ script = ExtResource("1_phd3e")
 player = NodePath("Player")
 player_spawn_point = NodePath("PlayerSpawnPoint")
 respawnPoint = NodePath("RespawnPoint")
-Next_level = ExtResource("2_0bfjb")
 Level_path = "res://MapAssets/Test_level.tscn"
 portal = NodePath("Mapa/Portal")
 
@@ -153,14 +151,17 @@ limit_bottom = 700
 editor_draw_limits = true
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(1459, 290)
+position = Vector2(385, 383)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("8_8n565")]
-position = Vector2(254, 466)
+position = Vector2(264, 376)
 MOVE_SPEED = 50.0
 Moving_time = 2.0
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("8_8n565")]
+position = Vector2(689, 315)
 
 [node name="Dispositivos" type="Node2D" parent="."]
 

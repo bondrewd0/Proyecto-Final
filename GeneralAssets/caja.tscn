@@ -16,7 +16,7 @@ size = Vector2(38, 36)
 [node name="Caja" type="RigidBody2D" groups=["Cajas"]]
 collision_layer = 8
 collision_mask = 27
-mass = 5.0
+mass = 5.5
 physics_material_override = SubResource("PhysicsMaterial_k34fp")
 script = ExtResource("1_437bl")
 
