@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8kuin1oy2ndy"]
+
+[ext_resource type="Shader" path="res://GlithEffect.gdshader" id="1_eg1t5"]
+[ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://DS-DIGIB.TTF" id="2_4iqmc"]
+[ext_resource type="Script" path="res://GeneralAssets/tutorialText.gd" id="2_6q410"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwsta"]
+shader = ExtResource("1_eg1t5")
+shader_parameter/shake_power = 0.003
+shader_parameter/shake_rate = 0.1
+shader_parameter/shake_speed = 2.535
+shader_parameter/shake_block_size = 10.0
+shader_parameter/shake_color_rate = 0.0
+
+[node name="Tutorial" type="ColorRect"]
+material = SubResource("ShaderMaterial_wwsta")
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_6q410")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+show_behind_parent = true
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/bold_font = ExtResource("2_4iqmc")
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b]gey"
+scroll_active = false
