@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdi8q5chc6xdw"]
+[gd_scene load_steps=14 format=3 uid="uid://bdi8q5chc6xdw"]
 
 [ext_resource type="Script" path="res://Pantallas/nivel_2.gd" id="1_7nfth"]
 [ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/Area1/background1.png" id="2_s76gt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="9_8dkti"]
 [ext_resource type="PackedScene" uid="uid://ogvbbgegun10" path="res://Components/kill_zone.tscn" id="10_b6s52"]
 [ext_resource type="PackedScene" uid="uid://dg5kcj88fssnp" path="res://Components/check_point.tscn" id="11_3n6cj"]
+[ext_resource type="PackedScene" uid="uid://d25lxqigjbs6" path="res://GeneralAssets/TutorialZone.tscn" id="12_segmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmrlj"]
 size = Vector2(1849, 400)
@@ -83,7 +84,7 @@ offset_bottom = 576.0
 texture = ExtResource("6_7gjuw")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(421, 355)
+position = Vector2(200, 355)
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 
@@ -111,3 +112,40 @@ debug_color = Color(0.976029, 0, 0.414963, 0.42)
 
 [node name="CheckPoint" parent="." instance=ExtResource("11_3n6cj")]
 position = Vector2(1535, 377)
+
+[node name="TextSize2" parent="." instance=ExtResource("12_segmi")]
+offset_left = 489.0
+offset_top = 310.0
+offset_right = 673.0
+offset_bottom = 350.0
+Message = "long press to charge the shot"
+
+[node name="TextSize" parent="." instance=ExtResource("12_segmi")]
+offset_left = 116.0
+offset_top = 306.0
+offset_right = 346.0
+offset_bottom = 369.0
+Message = "press space to launch energy orb / press again to move to it's position"
+
+[node name="ColorRect" type="ColorRect" parent="TextSize"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 54.0
+offset_top = 1.0
+offset_right = 108.0
+offset_bottom = 19.0
+color = Color(0.000693898, 0.000693898, 0.000693898, 1)
+
+[node name="TextSize3" parent="." instance=ExtResource("12_segmi")]
+offset_left = 1570.0
+offset_top = 225.0
+offset_right = 1754.0
+offset_bottom = 265.0
+Message = "you can jump while charging"
+
+[node name="TextSize4" parent="." instance=ExtResource("12_segmi")]
+offset_left = 1454.0
+offset_top = 318.0
+offset_right = 1582.0
+offset_bottom = 358.0
+Message = "checkpoint"

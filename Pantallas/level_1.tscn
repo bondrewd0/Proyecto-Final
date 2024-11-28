@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ket55fek7m8y" path="res://MapAssets/Area1/background4.png" id="6_y845t"]
 [ext_resource type="Texture2D" uid="uid://c4ynoeatl1gjn" path="res://MapAssets/Area1/background5.png" id="7_pjlp6"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="8_85m5x"]
-[ext_resource type="PackedScene" uid="uid://b7nxyoen0p4a7" path="res://EnemyAssets/Enemy.tscn" id="8_d1a72"]
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="9_6vrbl"]
 [ext_resource type="PackedScene" uid="uid://ogvbbgegun10" path="res://Components/kill_zone.tscn" id="10_hlmdd"]
+[ext_resource type="PackedScene" uid="uid://d25lxqigjbs6" path="res://GeneralAssets/TutorialZone.tscn" id="11_pge4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1p7x"]
 size = Vector2(1466, 290)
@@ -91,7 +91,7 @@ offset_bottom = 576.0
 texture = ExtResource("7_pjlp6")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(316, 349)
+position = Vector2(323, 351)
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 
@@ -109,11 +109,6 @@ limit_right = 2350
 position = Vector2(2120, 348)
 Active = true
 
-[node name="Enemy" parent="." instance=ExtResource("8_d1a72")]
-z_index = 4
-position = Vector2(606, 309)
-scale = Vector2(1.03225, 1.03489)
-
 [node name="KillZone" parent="." instance=ExtResource("10_hlmdd")]
 position = Vector2(1053, 631)
 
@@ -121,3 +116,66 @@ position = Vector2(1053, 631)
 position = Vector2(561, 142)
 shape = SubResource("RectangleShape2D_s1p7x")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Tutorial" parent="." instance=ExtResource("11_pge4y")]
+offset_left = 235.0
+offset_top = 330.0
+offset_right = 419.0
+offset_bottom = 370.0
+Message = "           w                        use a s d to move     "
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 61.0
+offset_top = 22.0
+offset_right = 77.0
+offset_bottom = 39.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Tutorial"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 46.0
+offset_top = 22.0
+offset_right = 62.0
+offset_bottom = 39.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Tutorial"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Tutorial"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 22.0
+offset_right = 48.0
+offset_bottom = 39.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextSize" parent="." instance=ExtResource("11_pge4y")]
+offset_left = 807.0
+offset_top = 203.0
+offset_right = 991.0
+offset_bottom = 243.0
+Message = "r to reset"
+
+[node name="ColorRect" type="ColorRect" parent="TextSize"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.0
+offset_right = 13.0
+offset_bottom = 22.0
+color = Color(0, 0, 0, 1)

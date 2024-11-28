@@ -4,22 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://c8kuin1oy2ndy" path="res://GeneralAssets/tutorialText.tscn" id="1_iiktx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc7af"]
+size = Vector2(91, 20)
 
-[node name="Area2D" type="Area2D"]
-collision_layer = 2048
-script = ExtResource("1_7bimf")
-Message = "Hola mundo"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vc7af")
-debug_color = Color(0.656775, 0.516363, 0, 0.42)
-
-[node name="Tutorial" parent="." instance=ExtResource("1_iiktx")]
-
-[node name="TextSize" type="ColorRect" parent="."]
+[node name="TextSize" type="ColorRect"]
 offset_right = 184.0
 offset_bottom = 40.0
 color = Color(0.333333, 0.211765, 1, 0.270588)
+script = ExtResource("1_7bimf")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[node name="Tutorial2" parent="." instance=ExtResource("1_iiktx")]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 39.0
+offset_bottom = 39.0
+
+[node name="Tutorial" type="Area2D" parent="."]
+position = Vector2(80, 75)
+collision_layer = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial"]
+position = Vector2(5.5, 0)
+shape = SubResource("RectangleShape2D_vc7af")
+debug_color = Color(0.656775, 0.516363, 0, 0.42)
+
+[connection signal="area_entered" from="Tutorial" to="." method="_on_tutorial_area_entered"]
+[connection signal="area_exited" from="Tutorial" to="." method="_on_tutorial_area_exited"]

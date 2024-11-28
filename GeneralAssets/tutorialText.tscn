@@ -20,10 +20,11 @@ script = ExtResource("2_6q410")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 show_behind_parent = true
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_fonts/bold_font = ExtResource("2_4iqmc")
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[b]gey"
+text = "[b][c]Escriba tutorial"
 scroll_active = false

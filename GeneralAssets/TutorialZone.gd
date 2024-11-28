@@ -1,18 +1,22 @@
+extends ColorRect
 
-extends Area2D
-
-@onready var tutorial = $Tutorial
+@onready var tutorial = $Tutorial2
 @export var Message:String
-@onready var text_size = $TextSize
+
 
 func _ready():
-	tutorial.size=text_size.size
-	tutorial.Tutorial_text.size=text_size.size
-	text_size.hide()
-	tutorial.Tutorial_text.text=Message
+	tutorial.size=size
+	tutorial.Tutorial_text.size=size
+	self_modulate=Color(1,1,1,0)
+	tutorial.Tutorial_text.text="[b][center]"+Message
 
-func _on_area_entered(area):
-	tutorial.show()
 
-func _on_area_exited(area):
-	tutorial.hide()
+func _on_tutorial_area_entered(area):
+	for child in get_children():
+		child.show()
+
+
+func _on_tutorial_area_exited(area):
+	for child in get_children():
+		child.hide()
+
