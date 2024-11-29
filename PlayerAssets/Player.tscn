@@ -363,6 +363,7 @@ Idle_State = NodePath("../Idle")
 Fall_State = NodePath("../Fall")
 Max_charge = 3.0
 charge_step = 0.05
+jump_force = -420.0
 
 [node name="Knocked" type="Node" parent="StateManager" node_paths=PackedStringArray("Idle_State", "Walk_State", "Fall_State")]
 script = ExtResource("9_4ow0p")

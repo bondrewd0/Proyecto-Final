@@ -43,7 +43,7 @@ func _handle_inputs(event:InputEvent):
 		else: 
 			if proyectile_instance:
 				teleport()
-	if event.is_action("Jump"):
+	if event.is_action("Jump") and Parent.is_on_floor():
 		#print("jump")
 		Parent.velocity.y=jump_force
 	return null
@@ -81,7 +81,7 @@ func _update(_delta:float):
 	if !Parent.is_on_floor():
 		if can_charge:
 			Parent.velocity.y+=gravity*_delta
-		else :
+		elif Parent.velocity.y>0:
 			return Fall_State
 	
 	return null

@@ -34,7 +34,7 @@ script = ExtResource("1_bwjlh")
 player = NodePath("Player")
 player_spawn_point = NodePath("PlayerSpawn")
 respawnPoint = NodePath("RespawnPoint")
-Next_level_path = "res://Pantallas/level_3.tscn"
+Next_level_path = "res://Pantallas/level_4.tscn"
 Level_path = "res://Pantallas/level_3.tscn"
 portal = NodePath("Portal")
 

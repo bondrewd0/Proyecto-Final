@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="1_18bjt"]
 [ext_resource type="Script" path="res://Traps/switching_laser.gd" id="1_c1p3h"]
 
-[node name="SwitchingLaser" type="Node2D"]
+[node name="SwitchingLaser" type="RigidBody2D"]
 script = ExtResource("1_c1p3h")
 
 [node name="Laser" parent="." instance=ExtResource("1_18bjt")]

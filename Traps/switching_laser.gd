@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 @onready var laser = $Laser
 @onready var switch = $Switch
 @export var On_time:float=1.0
