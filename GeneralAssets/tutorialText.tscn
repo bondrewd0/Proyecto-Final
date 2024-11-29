@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8kuin1oy2ndy"]
 
-[ext_resource type="Shader" path="res://GlithEffect.gdshader" id="1_eg1t5"]
-[ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://DS-DIGIB.TTF" id="2_4iqmc"]
+[ext_resource type="Shader" path="res://GeneralAssets/GlithEffect.gdshader" id="1_eg1t5"]
+[ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://GeneralAssets/DS-DIGIB.TTF" id="2_4iqmc"]
 [ext_resource type="Script" path="res://GeneralAssets/tutorialText.gd" id="2_6q410"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wwsta"]

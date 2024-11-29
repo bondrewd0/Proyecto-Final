@@ -371,7 +371,7 @@ Walk_State = NodePath("../Walk")
 Fall_State = NodePath("../Fall")
 
 [node name="BlockMovement" type="Timer" parent="StateManager/Knocked"]
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true
 
 [node name="Speed" type="Label" parent="."]
