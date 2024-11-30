@@ -65,6 +65,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61q7a"]
 
 [node name="Device" type="Sprite2D"]
+z_index = -1
 texture = SubResource("AtlasTexture_2kksy")
 script = ExtResource("2_aiwfa")
 
