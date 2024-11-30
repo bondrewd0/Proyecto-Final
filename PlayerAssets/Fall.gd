@@ -12,7 +12,8 @@ extends State
 var can_jump:bool=true
 var has_jumpped:bool=false
 func _enter():
-	coyote_timer.start()
+	if can_jump:
+		coyote_timer.start()
 	#print("Fall")
 	anim_tree.set("parameters/conditions/Falling",true)
 
@@ -32,6 +33,7 @@ func _update(_delta:float):
 	Parent.move_and_slide()
 	if Parent.is_on_floor():
 		#print("plop")
+		can_jump=true
 		anim_tree.set("parameters/conditions/Falling",false)
 		
 		if direction:
@@ -44,7 +46,6 @@ func _update(_delta:float):
 	return null
 #
 func _exit():
-	can_jump=true
 	if !coyote_timer.is_stopped():
 		coyote_timer.stop()
 	anim_tree.set("parameters/conditions/Landing",false)
@@ -53,6 +54,7 @@ func _handle_inputs(event:InputEvent):
 	if event.is_action_pressed("Attack"):
 		return Charge_state
 	if event.is_action_pressed("Jump") and can_jump:
+		has_jumped()
 		return Jump_state
 	return null
 

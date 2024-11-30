@@ -340,7 +340,7 @@ Jump_state = NodePath("../Jump")
 Move_speed = 200.0
 
 [node name="Coyote_Timer" type="Timer" parent="StateManager/Fall"]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="Jump" type="Node" parent="StateManager" node_paths=PackedStringArray("Fall_state", "Charge_state")]
