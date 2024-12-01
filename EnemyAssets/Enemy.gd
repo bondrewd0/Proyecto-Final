@@ -5,6 +5,7 @@ const SPEED = 300.0
 @onready var unmarktimer = $UnMarkTimer
 @onready var mov_timer = $MovTimer
 @onready var light = $PointLight2D
+@onready var tagged_effect = $TaggedEffect
 
 @onready var sprite = $AnimatedSprite2D
 @export var MOVE_SPEED:float=100
@@ -17,14 +18,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move:bool=true
 func _ready():
 	print("chekc")
+	print(global_position)
 	mov_timer.wait_time=Moving_time
 	sprite.play("Move")
 	mov_timer.start()
 	SignalBus.despawn_all.connect(despawn)
 
 func _physics_process(delta):
-	SignalBus.unmark_enemy.emit()
-	queue_free()
 	if can_move:
 		velocity.x=direction*MOVE_SPEED
 	if not is_on_floor():
@@ -41,6 +41,8 @@ func _on_hitbox_area_entered(area):
 		#print("Tagged!")
 		marked=true
 		SignalBus.emit_signal("enemy_marked",self)
+		tagged_effect.show()
+		tagged_effect.play("On")
 		unmarktimer.start()
 	if area.collision_layer==1024:
 		SignalBus.unmark_enemy.emit()
@@ -51,6 +53,7 @@ func _on_un_mark_timer_timeout():
 	#print("no longer it")
 	marked=false
 	SignalBus.unmark_enemy.emit()
+	remove_effect()
 
 func moved():
 	unmarktimer.stop()
@@ -61,7 +64,11 @@ func moved():
 	mov_timer.start()
 	velocity.y=-200
 	SignalBus.unmark_enemy.emit()
+	remove_effect()
 
+func remove_effect():
+	tagged_effect.hide()
+	tagged_effect.pause()
 
 func _on_mov_timer_timeout():
 	#print("ding",direction)
@@ -84,4 +91,5 @@ func _on_mov_timer_timeout():
 	mov_timer.start()
 
 func despawn():
+	print("noooooo")
 	queue_free()

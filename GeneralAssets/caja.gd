@@ -4,6 +4,8 @@ extends RigidBody2D
 var marked:bool=false
 var reset_state=false
 var player_position=Vector2.ZERO
+@onready var tagged_effect = $TaggedEffect
+@onready var un_tag = $UnTag
 
 
 func _integrate_forces(state):
@@ -35,7 +37,10 @@ func _on_hitbox_area_entered(area):
 	var parent=area.get_parent()
 	if parent is Player_Bullet:
 		marked=true
+		tagged_effect.show()
+		tagged_effect.play("On")
 		SignalBus.prop_marked.emit(self)
+		un_tag.start()
 
 func move(pos:Vector2):
 	#Activo esto para que deje de usar motor de fisicas y usa la func integrate forces
@@ -46,8 +51,18 @@ func move(pos:Vector2):
 	#congelo el objeto para que no salga disparado
 	freeze=true
 	$Delay.start()
+	tagged_effect.pause()
+	tagged_effect.hide()
 
 
 #descongelo el objeto
 func _on_delay_timeout():
 	freeze=false
+
+
+func _on_un_tag_timeout():
+	print("tarde")
+	SignalBus.unmark_prop.emit()
+	tagged_effect.pause()
+	tagged_effect.hide()
+	marked=false

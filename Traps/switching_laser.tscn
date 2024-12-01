@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Traps/switching_laser.gd" id="1_c1p3h"]
 
 [node name="SwitchingLaser" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
 script = ExtResource("1_c1p3h")
 
 [node name="Laser" parent="." instance=ExtResource("1_18bjt")]

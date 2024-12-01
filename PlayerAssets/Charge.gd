@@ -92,6 +92,7 @@ func teleport():
 		var current_pos=Parent.global_position
 		Parent.global_position=enemy_ref.global_position
 		enemy_ref.global_position=current_pos
+		enemy_ref.global_position.y-=50
 		enemy_ref.moved()
 	elif prop_ref:
 		var current_pos=Parent.global_position
@@ -120,4 +121,5 @@ func set_prop_ref(prop:RigidBody2D):
 
 func free_marked_prop():
 	prop_ref=null
+
 	free_proyectile()

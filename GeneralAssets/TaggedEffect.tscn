@@ -1,0 +1,117 @@
+[gd_scene load_steps=17 format=3 uid="uid://cfrirllx4cbie"]
+
+[ext_resource type="Texture2D" uid="uid://dytoiauvcgcwe" path="res://GeneralAssets/Shield Round Smooth Scan Loop V1 512x512 BW.png" id="1_5cyoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjy1k"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vejr"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnbiu"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xdu2"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcysx"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3m3q"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn2fs"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfrbh"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ok0"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78cja"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4xkk"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xupb1"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(1536, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_412ee"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(0, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7nyo"]
+atlas = ExtResource("1_5cyoq")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyroh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjy1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vejr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnbiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xdu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcysx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3m3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn2fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfrbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ok0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78cja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4xkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xupb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_412ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7nyo")
+}],
+"loop": true,
+"name": &"On",
+"speed": 28.0
+}]
+
+[node name="TaggedEffect" type="AnimatedSprite2D"]
+self_modulate = Color(1, 0.299451, 0.341026, 1)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_iyroh")
+animation = &"On"
+frame_progress = 0.987911
+speed_scale = 0.5

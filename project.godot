@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://GeneralAssets/SignalBus.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 Left={
