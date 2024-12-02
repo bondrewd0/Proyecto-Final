@@ -2,6 +2,7 @@ extends Node2D
 
 @export var Initial_scene:PackedScene
 @onready var pause = %Pause
+@onready var end_screen = %EndScreen
 
 @onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
@@ -18,7 +19,7 @@ func _ready():
 	SignalBus.player_dead.connect(player_death)
 	SignalBus.set_checkpoint.connect(player_check_point)
 	SignalBus.pass_level.connect(change_level)
-	
+	SignalBus.game_completed.connect(_on_level_completed)
 
 func reset():
 	action=2
@@ -92,3 +93,12 @@ func _on_menu_scene_begin_game():
 
 func _on_pause_unpause():
 	on_menu=false
+
+func _on_level_completed():
+	end_screen.show()
+	call_deferred("remove_current_level")
+
+
+func _on_end_screen_bact_to_menu():
+	end_screen.hide()
+	$UI/MenuScene.show()
