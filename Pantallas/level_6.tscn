@@ -141,8 +141,6 @@ Speed = 0.75
 
 [node name="SwitchingLaser" parent="Obstacles/MovingObject" instance=ExtResource("8_4mjgm")]
 position = Vector2(-71, 0)
-mass = 0.01
-gravity_scale = 0.0
 Off_time = 2.0
 
 [node name="MovingObject2" parent="Obstacles" node_paths=PackedStringArray("Object_to_Move") instance=ExtResource("7_8lqtx")]
@@ -152,8 +150,6 @@ Object_to_Move = NodePath("SwitchingLaser")
 
 [node name="SwitchingLaser" parent="Obstacles/MovingObject2" instance=ExtResource("8_4mjgm")]
 position = Vector2(-71, 0)
-mass = 0.01
-gravity_scale = 0.0
 On_time = 0.5
 Off_time = 1.5
 

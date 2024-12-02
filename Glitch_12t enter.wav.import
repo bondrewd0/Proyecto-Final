@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbc4bd4hxqelh"
+path="res://.godot/imported/Glitch_12t enter.wav-d455b1fe5b7c043d69b4feb4684682d8.sample"
+
+[deps]
+
+source_file="res://Glitch_12t enter.wav"
+dest_files=["res://.godot/imported/Glitch_12t enter.wav-d455b1fe5b7c043d69b4feb4684682d8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
