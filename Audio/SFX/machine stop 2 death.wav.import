@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnbrl3r7yp2h5"
-path="res://.godot/imported/machine stop 2 death.wav-cb2aab8602d8d0e50efaa993722a7448.sample"
+path="res://.godot/imported/machine stop 2 death.wav-8b3b00e914c3b8d7dbca533a6920eb8b.sample"
 
 [deps]
 
-source_file="res://machine stop 2 death.wav"
-dest_files=["res://.godot/imported/machine stop 2 death.wav-cb2aab8602d8d0e50efaa993722a7448.sample"]
+source_file="res://Audio/SFX/machine stop 2 death.wav"
+dest_files=["res://.godot/imported/machine stop 2 death.wav-8b3b00e914c3b8d7dbca533a6920eb8b.sample"]
 
 [params]
 

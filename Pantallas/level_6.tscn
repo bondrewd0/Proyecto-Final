@@ -144,14 +144,15 @@ position = Vector2(-71, 0)
 Off_time = 2.0
 
 [node name="MovingObject2" parent="Obstacles" node_paths=PackedStringArray("Object_to_Move") instance=ExtResource("7_8lqtx")]
-position = Vector2(601, 316)
+position = Vector2(579, 316)
 curve = SubResource("Curve2D_lm42r")
 Object_to_Move = NodePath("SwitchingLaser")
+speed_scale = 0.75
 
 [node name="SwitchingLaser" parent="Obstacles/MovingObject2" instance=ExtResource("8_4mjgm")]
-position = Vector2(-71, 0)
-On_time = 0.5
-Off_time = 1.5
+position = Vector2(-75, 0)
+On_time = 0.75
+Off_time = 0.5
 
 [node name="MovingLaser" parent="Obstacles" instance=ExtResource("9_c35ro")]
 position = Vector2(1819, 244)

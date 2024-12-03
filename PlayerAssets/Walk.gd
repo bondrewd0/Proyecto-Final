@@ -4,10 +4,13 @@ extends State
 @export var Idle_State:State
 @export var Jump_State:State
 @export var Fall_State:State
+@onready var walk_sound = $WalkSFX
 
 func _enter():
 	#print("Walk")
 	anim_tree.set("parameters/conditions/Walking",true)
+	
+	walk_sound.play()
 
 func _handle_inputs(event:InputEvent):
 	if event.is_action_pressed("Down") and Parent.is_on_floor():
@@ -19,6 +22,9 @@ func _handle_inputs(event:InputEvent):
 
 func _update(_delta:float):
 	check_col()
+	#walk_sound.global_position=Parent.global_position
+	if !walk_sound.playing:
+		walk_sound.play()
 	var direction=Input.get_axis("Left","Right")
 	if direction:
 		Parent.velocity.x=Move_speed*direction
@@ -34,6 +40,7 @@ func _update(_delta:float):
 	return null
 
 func _exit():
+	walk_sound.stop()
 	anim_tree.set("parameters/conditions/Walking",false)
 
 func check_col():

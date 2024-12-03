@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr1wbfinn6ar2"]
+[gd_scene load_steps=13 format=3 uid="uid://dr1wbfinn6ar2"]
 
 [ext_resource type="Script" path="res://Traps/Laser.gd" id="1_cuis5"]
 [ext_resource type="Texture2D" uid="uid://brl68bamwbkch" path="res://Traps/laser.png" id="2_i2cg3"]
+[ext_resource type="AudioStream" uid="uid://bjt1trcr5j3c7" path="res://Audio/SFX/static2 lasers.wav" id="3_x00yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw2uy"]
 size = Vector2(13, 76)
@@ -181,5 +182,14 @@ libraries = {
 position = Vector2(4, 82)
 process_material = SubResource("ParticleProcessMaterial_kgq64")
 lifetime = 0.3
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x00yp")
+volume_db = -15.0
+pitch_scale = 0.6
+autoplay = true
+stream_paused = true
+max_distance = 750.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

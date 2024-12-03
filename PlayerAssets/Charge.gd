@@ -17,6 +17,7 @@ var charge_level:float=1.0
 var enemy_ref:Enemy=null
 var prop_ref:RigidBody2D=null
 @onready var charge_meter = $"../../PlayerUi/ChargeLevel"
+@onready var tpsfx = $TPSFX
 
 
 func _enter():
@@ -87,6 +88,7 @@ func _update(_delta:float):
 	return null
 
 func teleport():
+	tpsfx.play()
 	if enemy_ref:
 		#print("TP to: ",proyectile_instance.global_position)              
 		var current_pos=Parent.global_position

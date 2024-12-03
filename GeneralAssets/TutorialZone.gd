@@ -2,6 +2,8 @@ extends ColorRect
 
 @onready var tutorial = $Tutorial2
 @export var Message:String
+@onready var enter_sfx = $EnterSFX
+@onready var exit_sfx = $ExitSFX
 
 
 func _ready():
@@ -14,9 +16,11 @@ func _ready():
 func _on_tutorial_area_entered(area):
 	for child in get_children():
 		child.show()
+		enter_sfx.play()
 
 
 func _on_tutorial_area_exited(area):
 	for child in get_children():
 		child.hide()
+		exit_sfx.play()
 

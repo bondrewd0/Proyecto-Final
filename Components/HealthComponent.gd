@@ -5,7 +5,7 @@ class_name Health_Value
 	set(new_value):
 		if new_value<=Max_Health:
 			Health=new_value
-
+@export var Sfx:AudioStreamPlayer2D
 signal health_change(new_value)
 
 func damage(dmg_amount:int):
@@ -16,5 +16,7 @@ func damage(dmg_amount:int):
 		SignalBus.player_dead.emit()
 
 func heal():
+	if Sfx:
+		Sfx.play()
 	Health=Max_Health
 	health_change.emit(Health)

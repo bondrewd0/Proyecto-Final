@@ -1,5 +1,6 @@
 extends Trap
 
+@onready var sfx = $SFX
 @onready var animation_player = $AnimationPlayer
 @onready var paticles = $GPUParticles2D
 var is_on:bool=true
@@ -14,6 +15,7 @@ func _on_hitbox_area_entered(area):
 
 func turn_off():
 	is_on=false
+	sfx.stop()
 	animation_player.play("Shut_Down")
 	paticles.emitting=false
 	
@@ -21,6 +23,7 @@ func turn_off():
 
 func turn_on():
 	is_on=true
+	sfx.play()
 	animation_player.play("On")
 	paticles.emitting=true
 

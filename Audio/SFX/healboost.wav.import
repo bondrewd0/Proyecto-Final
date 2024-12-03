@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://qn1yah8que8j"
-path="res://.godot/imported/door open(1).wav-16940cc7d63ec91e2c0035120f2c8c2c.sample"
+uid="uid://bjlcifururxav"
+path="res://.godot/imported/healboost.wav-32a61c1b1db7ffac91b9e127aa7f4b38.sample"
 
 [deps]
 
-source_file="res://door open(1).wav"
-dest_files=["res://.godot/imported/door open(1).wav-16940cc7d63ec91e2c0035120f2c8c2c.sample"]
+source_file="res://Audio/SFX/healboost.wav"
+dest_files=["res://.godot/imported/healboost.wav-32a61c1b1db7ffac91b9e127aa7f4b38.sample"]
 
 [params]
 

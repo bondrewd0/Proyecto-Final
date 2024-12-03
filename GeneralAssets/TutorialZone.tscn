@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d25lxqigjbs6"]
+[gd_scene load_steps=6 format=3 uid="uid://d25lxqigjbs6"]
 
 [ext_resource type="Script" path="res://GeneralAssets/TutorialZone.gd" id="1_7bimf"]
 [ext_resource type="PackedScene" uid="uid://c8kuin1oy2ndy" path="res://GeneralAssets/tutorialText.tscn" id="1_iiktx"]
+[ext_resource type="AudioStream" uid="uid://bbc4bd4hxqelh" path="res://Audio/SFX/TutorialEnter.wav" id="3_pvjge"]
+[ext_resource type="AudioStream" uid="uid://cnub8f44isrra" path="res://Audio/SFX/TutorailExit.wav" id="4_no3iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc7af"]
 size = Vector2(91, 20)
@@ -28,6 +30,14 @@ collision_layer = 2048
 position = Vector2(5.5, 0)
 shape = SubResource("RectangleShape2D_vc7af")
 debug_color = Color(0.656775, 0.516363, 0, 0.42)
+
+[node name="EnterSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pvjge")
+bus = &"SFX"
+
+[node name="ExitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_no3iy")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Tutorial" to="." method="_on_tutorial_area_entered"]
 [connection signal="area_exited" from="Tutorial" to="." method="_on_tutorial_area_exited"]

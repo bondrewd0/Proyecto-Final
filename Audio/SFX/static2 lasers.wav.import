@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bjt1trcr5j3c7"
-path="res://.godot/imported/static2 lasers.wav-9a77ca4b89b981c07b854755efe9ecd5.sample"
+path="res://.godot/imported/static2 lasers.wav-d8423cecda6f80d7b4b9926063d18e4b.sample"
 
 [deps]
 
-source_file="res://static2 lasers.wav"
-dest_files=["res://.godot/imported/static2 lasers.wav-9a77ca4b89b981c07b854755efe9ecd5.sample"]
+source_file="res://Audio/SFX/static2 lasers.wav"
+dest_files=["res://.godot/imported/static2 lasers.wav-d8423cecda6f80d7b4b9926063d18e4b.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
+edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0

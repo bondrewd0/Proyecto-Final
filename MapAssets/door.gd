@@ -3,8 +3,11 @@ extends StaticBody2D
 @onready var anim_player = $AnimationPlayer
 var is_open:bool=false
 @export var One_use:bool=false
+@onready var sfx = $SFX
 
 func action():
+	if not sfx.playing:
+		sfx.play()
 	if One_use:
 		anim_player.play("Open")
 	else:

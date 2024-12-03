@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bjlcifururxav"
-path="res://.godot/imported/healboost.wav-7ce5d4777d37850f3864f26a015612d6.sample"
+uid="uid://c7quovloynjl"
+path="res://.godot/imported/pickup2db.wav-e50cf5d80d9ba398cadbbbbe5ea8de16.sample"
 
 [deps]
 
-source_file="res://healboost.wav"
-dest_files=["res://.godot/imported/healboost.wav-7ce5d4777d37850f3864f26a015612d6.sample"]
+source_file="res://Audio/SFX/pickup2db.wav"
+dest_files=["res://.godot/imported/pickup2db.wav-e50cf5d80d9ba398cadbbbbe5ea8de16.sample"]
 
 [params]
 

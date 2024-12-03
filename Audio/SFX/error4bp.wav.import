@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://w2g3g05drdyl"
-path="res://.godot/imported/little engine d.wav-9bfac7a33ae04080ed9cf204477d51d9.sample"
+uid="uid://djhchlc46v01a"
+path="res://.godot/imported/error4bp.wav-b619ae4fdf33e49ee8d0031c8e2885e4.sample"
 
 [deps]
 
-source_file="res://little engine d.wav"
-dest_files=["res://.godot/imported/little engine d.wav-9bfac7a33ae04080ed9cf204477d51d9.sample"]
+source_file="res://Audio/SFX/error4bp.wav"
+dest_files=["res://.godot/imported/error4bp.wav-b619ae4fdf33e49ee8d0031c8e2885e4.sample"]
 
 [params]
 
