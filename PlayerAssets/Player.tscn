@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b1cj3750ycuy4"]
+[gd_scene load_steps=55 format=3 uid="uid://b1cj3750ycuy4"]
 
 [ext_resource type="Script" path="res://PlayerAssets/PlayerController.gd" id="1_bkgsq"]
 [ext_resource type="Texture2D" uid="uid://bx88oaojb8oua" path="res://PlayerAssets/mech 2 full sheet.png" id="1_rxoup"]
@@ -8,14 +8,17 @@
 [ext_resource type="Script" path="res://PlayerAssets/Fall.gd" id="6_654ok"]
 [ext_resource type="AudioStream" uid="uid://ccmgv7vnoxs4g" path="res://Audio/SFX/WalkSFX.mp3" id="6_n3k5r"]
 [ext_resource type="Script" path="res://PlayerAssets/Jump.gd" id="7_4fipo"]
+[ext_resource type="AudioStream" uid="uid://rvd6amytkhlh" path="res://Audio/SFX/land.wav" id="8_2jh2b"]
 [ext_resource type="Script" path="res://PlayerAssets/Charge.gd" id="8_f3j5j"]
 [ext_resource type="Script" path="res://PlayerAssets/Knocked.gd" id="9_4ow0p"]
-[ext_resource type="AudioStream" uid="uid://djhchlc46v01a" path="res://Audio/SFX/error4bp.wav" id="10_6yjp7"]
+[ext_resource type="AudioStream" uid="uid://cycns0rgufl1u" path="res://Audio/SFX/jump.mp3" id="9_j33ug"]
+[ext_resource type="AudioStream" uid="uid://djhchlc46v01a" path="res://Audio/SFX/Teleport.wav" id="10_6yjp7"]
 [ext_resource type="Script" path="res://Components/HealthComponent.gd" id="10_mtkwd"]
 [ext_resource type="PackedScene" uid="uid://c4gm4fnx0ter0" path="res://Components/health_bar.tscn" id="11_v26ey"]
 [ext_resource type="Texture2D" uid="uid://bis3uqmr0653t" path="res://GeneralAssets/ChargerBack.tres" id="12_nj77s"]
 [ext_resource type="AudioStream" uid="uid://bjlcifururxav" path="res://Audio/SFX/healboost.wav" id="13_5uvx7"]
 [ext_resource type="Texture2D" uid="uid://dcyna7ldov53d" path="res://GeneralAssets/ChargeLevel.tres" id="13_7gpmy"]
+[ext_resource type="AudioStream" uid="uid://325uyl2c5lc8" path="res://Audio/SFX/hurt3.wav" id="13_ycw3k"]
 [ext_resource type="Script" path="res://PlayerAssets/ChargeMeter.gd" id="14_pbf5w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3quv"]
@@ -352,6 +355,12 @@ Move_speed = 200.0
 wait_time = 0.2
 one_shot = true
 
+[node name="LandSFX" type="AudioStreamPlayer2D" parent="StateManager/Fall"]
+stream = ExtResource("8_2jh2b")
+volume_db = -5.0
+max_distance = 100000.0
+bus = &"SFX"
+
 [node name="Jump" type="Node" parent="StateManager" node_paths=PackedStringArray("Fall_state", "Charge_state")]
 script = ExtResource("7_4fipo")
 Fall_state = NodePath("../Fall")
@@ -376,6 +385,8 @@ jump_force = -420.0
 
 [node name="TPSFX" type="AudioStreamPlayer2D" parent="StateManager/Charge"]
 stream = ExtResource("10_6yjp7")
+volume_db = -10.0
+max_distance = 1e+06
 bus = &"SFX"
 
 [node name="Knocked" type="Node" parent="StateManager" node_paths=PackedStringArray("Idle_State", "Walk_State", "Fall_State")]
@@ -387,6 +398,10 @@ Fall_State = NodePath("../Fall")
 [node name="BlockMovement" type="Timer" parent="StateManager/Knocked"]
 wait_time = 0.3
 one_shot = true
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="StateManager/Knocked"]
+stream = ExtResource("13_ycw3k")
+pitch_scale = 0.7
 
 [node name="Speed" type="Label" parent="."]
 visible = false
@@ -409,7 +424,16 @@ Sfx = NodePath("HealUp")
 
 [node name="HealUp" type="AudioStreamPlayer2D" parent="HP"]
 stream = ExtResource("13_5uvx7")
+volume_db = -25.0
+max_distance = 1e+06
+bus = &"SFX"
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_j33ug")
 volume_db = -10.0
+max_distance = 1e+06
+bus = &"SFX"
 
 [node name="PlayerUi" type="CanvasLayer" parent="."]
 

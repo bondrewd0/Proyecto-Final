@@ -6,7 +6,7 @@ var is_open:bool=false
 @onready var sfx = $SFX
 
 func action():
-	if not sfx.playing:
+	if not sfx.playing and is_inside_tree():
 		sfx.play()
 	if One_use:
 		anim_player.play("Open")

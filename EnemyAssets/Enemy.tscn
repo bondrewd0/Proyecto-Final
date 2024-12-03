@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7nxyoen0p4a7"]
+[gd_scene load_steps=21 format=3 uid="uid://b7nxyoen0p4a7"]
 
 [ext_resource type="Script" path="res://EnemyAssets/Enemy.gd" id="1_27cbm"]
 [ext_resource type="Texture2D" uid="uid://dmhwejjo6uxyt" path="res://EnemyAssets/Drone.png" id="2_hgr8y"]
 [ext_resource type="PackedScene" uid="uid://cfrirllx4cbie" path="res://GeneralAssets/TaggedEffect.tscn" id="3_pes5m"]
+[ext_resource type="AudioStream" uid="uid://w2g3g05drdyl" path="res://Audio/SFX/droneMoving.wav" id="4_v58s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5c853"]
 atlas = ExtResource("2_hgr8y")
@@ -156,6 +157,11 @@ texture = SubResource("GradientTexture2D_1ww8a")
 
 [node name="TaggedEffect" parent="." instance=ExtResource("3_pes5m")]
 visible = false
+
+[node name="MovingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v58s1")
+max_distance = 500.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="UnMarkTimer" to="." method="_on_un_mark_timer_timeout"]

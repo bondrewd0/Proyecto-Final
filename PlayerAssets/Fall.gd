@@ -35,7 +35,7 @@ func _update(_delta:float):
 		#print("plop")
 		can_jump=true
 		anim_tree.set("parameters/conditions/Falling",false)
-		
+		$LandSFX.play()
 		if direction:
 			
 			return Walk_state
@@ -46,6 +46,7 @@ func _update(_delta:float):
 	return null
 #
 func _exit():
+	
 	if !coyote_timer.is_stopped():
 		coyote_timer.stop()
 	anim_tree.set("parameters/conditions/Landing",false)

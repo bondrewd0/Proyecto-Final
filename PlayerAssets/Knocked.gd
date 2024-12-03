@@ -6,10 +6,11 @@ extends State
 @export var Fall_State:State
 @onready var block_movement = $BlockMovement
 var can_move=false
+@onready var hurt_sfx = $HurtSFX
 
 func _enter():
 	#print("Knocked")
-	
+	hurt_sfx.play()
 	can_move=false
 	block_movement.start()
 

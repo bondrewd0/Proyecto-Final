@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddv41nvfdxqvc"]
+[gd_scene load_steps=10 format=3 uid="uid://ddv41nvfdxqvc"]
 
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="1_gykn8"]
 [ext_resource type="Script" path="res://Components/deviceBase.gd" id="2_aiwfa"]
+[ext_resource type="AudioStream" uid="uid://c7quovloynjl" path="res://Audio/SFX/pickup2db.wav" id="3_1iiav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kksy"]
 resource_local_to_scene = true
@@ -79,3 +80,7 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_61q7a")
+
+[node name="PressedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1iiav")
+bus = &"SFX"

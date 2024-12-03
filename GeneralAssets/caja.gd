@@ -6,6 +6,7 @@ var reset_state=false
 var player_position=Vector2.ZERO
 @onready var tagged_effect = $TaggedEffect
 @onready var un_tag = $UnTag
+@onready var moving_sfx = $MovingSFX
 
 
 func _integrate_forces(state):
@@ -25,12 +26,17 @@ func _integrate_forces(state):
 
 func _process(_delta):
 	if linear_velocity.x<-0.5:
+		if !moving_sfx.playing:
+			moving_sfx.play()
 		particulas.emitting=true
 		particulas.position.x=-19
 	elif linear_velocity.x>0.5:
+		if !moving_sfx.playing:
+			moving_sfx.play()
 		particulas.emitting=true
 		particulas.position.x=19
 	else:
+		moving_sfx.stop()
 		particulas.emitting=false
 
 func _on_hitbox_area_entered(area):

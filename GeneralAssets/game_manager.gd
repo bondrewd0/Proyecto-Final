@@ -3,6 +3,7 @@ extends Node2D
 @export var Initial_scene:PackedScene
 @onready var pause = %Pause
 @onready var end_screen = %EndScreen
+@onready var death_sfx = $Sound/DeathSfx
 
 @onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
@@ -48,6 +49,7 @@ func player_death():
 	current_level.reset_level()
 	death_screen.show()
 	death_screen.play_anim()
+	death_sfx.play()
 
 
 func _on_transition_screen_transition_finished():

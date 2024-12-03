@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy8mt5pwgrf0j"]
+[gd_scene load_steps=9 format=3 uid="uid://cy8mt5pwgrf0j"]
 
 [ext_resource type="Script" path="res://GeneralAssets/game_manager.gd" id="1_ckkma"]
 [ext_resource type="PackedScene" uid="uid://1h6t4t5rjx4p" path="res://Pantallas/Menu.tscn" id="2_4ykws"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="4_fsrbq"]
 [ext_resource type="PackedScene" uid="uid://7icd0fup3aqy" path="res://Pantallas/PauseMenu.tscn" id="6_2ww2e"]
 [ext_resource type="PackedScene" uid="uid://bdyp6v5fplobt" path="res://Pantallas/EndSreen.tscn" id="7_x74qm"]
+[ext_resource type="AudioStream" uid="uid://cnbrl3r7yp2h5" path="res://Audio/SFX/machine stop 2 death.wav" id="8_hpgi1"]
 
 [node name="GameManager" type="Node2D"]
 process_mode = 3
@@ -24,6 +25,7 @@ visible = false
 
 [node name="TransitionScreen" parent="UI" instance=ExtResource("4_fsrbq")]
 unique_name_in_owner = true
+layer = 3
 
 [node name="Pause" parent="UI" instance=ExtResource("6_2ww2e")]
 unique_name_in_owner = true
@@ -32,6 +34,13 @@ visible = false
 [node name="EndScreen" parent="UI" instance=ExtResource("7_x74qm")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="DeathSfx" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("8_hpgi1")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="begin_game" from="UI/MenuScene" to="." method="_on_menu_scene_begin_game"]
 [connection signal="transition_finished" from="UI/TransitionScreen" to="." method="_on_transition_screen_transition_finished"]

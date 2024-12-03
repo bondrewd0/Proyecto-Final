@@ -18,6 +18,7 @@ var enemy_ref:Enemy=null
 var prop_ref:RigidBody2D=null
 @onready var charge_meter = $"../../PlayerUi/ChargeLevel"
 @onready var tpsfx = $TPSFX
+@onready var jump_sfx = %JumpSFX
 
 
 func _enter():
@@ -46,6 +47,7 @@ func _handle_inputs(event:InputEvent):
 				teleport()
 	if event.is_action("Jump") and Parent.is_on_floor():
 		#print("jump")
+		jump_sfx.play()
 		Parent.velocity.y=jump_force
 	return null
 

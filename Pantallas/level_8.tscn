@@ -101,6 +101,7 @@ position = Vector2(68, 415)
 
 [node name="Portal" parent="." instance=ExtResource("6_2o1sr")]
 position = Vector2(2128, 112)
+Active = true
 
 [node name="Enemies" type="Node2D" parent="."]
 

@@ -1,9 +1,12 @@
 extends State
 
+@onready var jump_sfx = %JumpSFX
+
 @export var Fall_state:State
 @export var Charge_state:State
 signal block_coyote
 func _enter():
+	jump_sfx.play()
 	anim_tree.set("parameters/conditions/Jumping",true)
 	#print("Jump")
 	if Parent.is_on_floor():

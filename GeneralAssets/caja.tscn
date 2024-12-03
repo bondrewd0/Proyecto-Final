@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://je5vem4uod1j"]
+[gd_scene load_steps=9 format=3 uid="uid://je5vem4uod1j"]
 
 [ext_resource type="Script" path="res://GeneralAssets/caja.gd" id="1_437bl"]
 [ext_resource type="Texture2D" uid="uid://35yuceg4u5in" path="res://GeneralAssets/3.png" id="2_1vrfj"]
 [ext_resource type="PackedScene" uid="uid://d155mtg2nv5ig" path="res://Components/Dragging_VFX.tscn" id="3_bc3t0"]
 [ext_resource type="PackedScene" uid="uid://cfrirllx4cbie" path="res://GeneralAssets/TaggedEffect.tscn" id="4_gqamf"]
+[ext_resource type="AudioStream" uid="uid://rux5xrliiigx" path="res://Audio/SFX/boxpushed.mp3" id="5_3xogy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k34fp"]
 resource_local_to_scene = true
@@ -55,6 +56,10 @@ visible = false
 [node name="UnTag" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="MovingSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3xogy")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

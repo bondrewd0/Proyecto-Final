@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh7xpycslqo47"]
+[gd_scene load_steps=6 format=3 uid="uid://dh7xpycslqo47"]
 
 [ext_resource type="Texture2D" uid="uid://ban0ypi473ps3" path="res://GeneralAssets/acido.png" id="1_m2ec5"]
 [ext_resource type="Script" path="res://Traps/AcidBehaiviour.gd" id="2_vhkfa"]
+[ext_resource type="AudioStream" uid="uid://4otknf2b2l2" path="res://Audio/SFX/viscious-liquid-gurgling-54710.mp3" id="3_y1j3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f3iq"]
 size = Vector2(128, 32)
@@ -27,5 +28,12 @@ shape = SubResource("RectangleShape2D_5f3iq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 17.5)
 shape = SubResource("RectangleShape2D_csndc")
+
+[node name="AcidSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y1j3x")
+autoplay = true
+stream_paused = true
+max_distance = 1000.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Sprite/Area2D" to="Sprite" method="_on_area_2d_area_entered"]

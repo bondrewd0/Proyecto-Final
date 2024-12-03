@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqq0xvn34jfti"]
+[gd_scene load_steps=21 format=3 uid="uid://cqq0xvn34jfti"]
 
 [ext_resource type="Script" path="res://Pantallas/level_7.gd" id="1_gsrqc"]
 [ext_resource type="TileSet" uid="uid://ch0i14q2slc2w" path="res://MapAssets/Area3/Area3.tres" id="2_uplq1"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="11_3m2cp"]
 [ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="12_8kcbh"]
 [ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="14_huhsb"]
-[ext_resource type="PackedScene" uid="uid://d25lxqigjbs6" path="res://GeneralAssets/TutorialZone.tscn" id="15_wp6pk"]
 [ext_resource type="PackedScene" uid="uid://c8skbmbdrul5j" path="res://MapAssets/HealthOrb.tscn" id="16_qwnju"]
 [ext_resource type="PackedScene" uid="uid://dg5kcj88fssnp" path="res://Components/check_point.tscn" id="17_88p4l"]
 
@@ -99,6 +98,7 @@ position = Vector2(68, 246)
 
 [node name="Portal" parent="." instance=ExtResource("6_qia63")]
 position = Vector2(1757, 368)
+Active = true
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -176,13 +176,6 @@ Attached_Object = NodePath("../../Obstacles/Door")
 [node name="Caja" parent="Objects" instance=ExtResource("14_huhsb")]
 position = Vector2(208, 549)
 physics_material_override = SubResource("PhysicsMaterial_c8fv2")
-
-[node name="TextSize" parent="." instance=ExtResource("15_wp6pk")]
-offset_left = 1698.0
-offset_top = 308.0
-offset_right = 1882.0
-offset_bottom = 348.0
-Message = "Eso es todo amigos "
 
 [node name="Orb" parent="." instance=ExtResource("16_qwnju")]
 position = Vector2(960, 83)

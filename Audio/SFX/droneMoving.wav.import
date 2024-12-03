@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://w2g3g05drdyl"
-path="res://.godot/imported/little engine d.wav-2a8f0770900ae28b8258288f3abb3c8f.sample"
+path="res://.godot/imported/droneMoving.wav-4c59faf2e704df85c88f865e8919aac4.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/little engine d.wav"
-dest_files=["res://.godot/imported/little engine d.wav-2a8f0770900ae28b8258288f3abb3c8f.sample"]
+source_file="res://Audio/SFX/droneMoving.wav"
+dest_files=["res://.godot/imported/droneMoving.wav-4c59faf2e704df85c88f865e8919aac4.sample"]
 
 [params]
 

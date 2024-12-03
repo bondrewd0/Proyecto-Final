@@ -6,6 +6,7 @@ const SPEED = 300.0
 @onready var mov_timer = $MovTimer
 @onready var light = $PointLight2D
 @onready var tagged_effect = $TaggedEffect
+@onready var moving_sound = $MovingSound
 
 @onready var sprite = $AnimatedSprite2D
 @export var MOVE_SPEED:float=100
@@ -17,6 +18,7 @@ var direction:int=1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move:bool=true
 func _ready():
+	moving_sound.play()
 	print("chekc")
 	print(global_position)
 	mov_timer.wait_time=Moving_time
@@ -86,8 +88,7 @@ func _on_mov_timer_timeout():
 		#print("waiting")
 	else:
 		sprite.play("Move")
-		#print("Moving")
-	#print(mov_timer.wait_time, direction)
+		moving_sound.play()
 	mov_timer.start()
 
 func despawn():
