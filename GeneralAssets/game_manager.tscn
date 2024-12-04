@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy8mt5pwgrf0j"]
+[gd_scene load_steps=18 format=3 uid="uid://cy8mt5pwgrf0j"]
 
 [ext_resource type="Script" path="res://GeneralAssets/game_manager.gd" id="1_ckkma"]
 [ext_resource type="PackedScene" uid="uid://1h6t4t5rjx4p" path="res://Pantallas/Menu.tscn" id="2_4ykws"]
@@ -11,14 +11,19 @@
 [ext_resource type="AudioStream" uid="uid://cnbrl3r7yp2h5" path="res://Audio/SFX/machine stop 2 death.wav" id="8_hpgi1"]
 [ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://GeneralAssets/DS-DIGIB.TTF" id="9_41q7y"]
 [ext_resource type="PackedScene" uid="uid://dqbxhfdml1do0" path="res://Pantallas/settings.tscn" id="10_se836"]
+[ext_resource type="AudioStream" uid="uid://cinqpsv55lbo3" path="res://Audio/Music/Empty Streets.wav" id="12_83asw"]
+[ext_resource type="AudioStream" uid="uid://bgjggd8qhi17n" path="res://Audio/Music/The Story Continues.wav" id="12_xrkvc"]
+[ext_resource type="AudioStream" uid="uid://bboutx1lw4arg" path="res://Audio/Music/Mystery Unsolved.wav" id="13_sdyj2"]
+[ext_resource type="AudioStream" uid="uid://xb372nr23lip" path="res://Audio/Music/Surveillance.wav" id="14_sw844"]
+[ext_resource type="AudioStream" uid="uid://7vomgokgbrk4" path="res://Audio/Music/Survivor - ending - lonely - sad - strings.mp3" id="15_5g3ew"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_548ux"]
 shader = ExtResource("8_gl2yl")
-shader_parameter/shake_power = 0.03
-shader_parameter/shake_rate = 0.111
-shader_parameter/shake_speed = 1.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.01
+shader_parameter/shake_power = 0.001
+shader_parameter/shake_rate = 0.1
+shader_parameter/shake_speed = 0.5
+shader_parameter/shake_block_size = 10.0
+shader_parameter/shake_color_rate = 0.0
 
 [node name="GameManager" type="Node2D"]
 process_mode = 3
@@ -69,6 +74,7 @@ scroll_active = false
 [node name="Settings" parent="UI" instance=ExtResource("10_se836")]
 unique_name_in_owner = true
 visible = false
+z_index = 4
 
 [node name="Sound" type="Node" parent="."]
 
@@ -77,9 +83,42 @@ stream = ExtResource("8_hpgi1")
 volume_db = -5.0
 bus = &"SFX"
 
+[node name="Area1Music" type="AudioStreamPlayer2D" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("12_83asw")
+volume_db = 5.0
+max_distance = 100000.0
+bus = &"Music"
+
+[node name="Area2Music" type="AudioStreamPlayer2D" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("13_sdyj2")
+volume_db = 5.0
+max_distance = 100000.0
+bus = &"Music"
+
+[node name="Area3Music" type="AudioStreamPlayer2D" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("14_sw844")
+volume_db = 5.0
+max_distance = 100000.0
+bus = &"Music"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("15_5g3ew")
+volume_db = 15.0
+bus = &"Music"
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("12_xrkvc")
+bus = &"Music"
+
 [connection signal="begin_game" from="UI/MenuScene" to="." method="_on_menu_scene_begin_game"]
 [connection signal="open_settings" from="UI/MenuScene" to="." method="_on_menu_scene_open_settings"]
 [connection signal="transition_finished" from="UI/TransitionScreen" to="." method="_on_transition_screen_transition_finished"]
+[connection signal="open_settings" from="UI/Pause" to="." method="_on_pause_open_settings"]
 [connection signal="unpause" from="UI/Pause" to="." method="_on_pause_unpause"]
 [connection signal="bact_to_menu" from="UI/EndScreen" to="." method="_on_end_screen_bact_to_menu"]
 [connection signal="musicV_Changed" from="UI/Settings" to="." method="_on_settings_music_v_changed"]

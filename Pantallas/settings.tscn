@@ -25,10 +25,11 @@ offset_top = 262.0
 offset_right = 734.0
 offset_bottom = 270.0
 min_value = -10.0
-max_value = 5.0
-step = 0.5
+max_value = 10.0
+step = 0.1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SoundVolume"]
+layout_mode = 0
 offset_left = 106.0
 offset_top = -43.0
 offset_right = 296.0
@@ -46,10 +47,12 @@ offset_top = 388.0
 offset_right = 730.0
 offset_bottom = 396.0
 min_value = -10.0
-max_value = 5.0
-step = 0.5
+max_value = 10.0
+step = 0.1
+value = 2.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MusicVolume"]
+layout_mode = 0
 offset_left = 85.0
 offset_top = -43.0
 offset_right = 275.0

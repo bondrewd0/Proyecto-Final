@@ -43,9 +43,9 @@ text = "CONTINUE"
 [node name="Exit" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 494.0
-offset_top = 381.0
-offset_right = 534.0
-offset_bottom = 421.0
+offset_top = 437.0
+offset_right = 606.0
+offset_bottom = 477.0
 texture_normal = SubResource("AtlasTexture_x1a1i")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Exit"]
@@ -57,6 +57,24 @@ offset_bottom = 46.0
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_nx3b5")
 text = "QUIT"
+
+[node name="Settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 376.0
+offset_right = 606.0
+offset_bottom = 416.0
+texture_normal = SubResource("AtlasTexture_x1a1i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 115.0
+offset_bottom = 46.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_nx3b5")
+text = "SETTINGS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -71,3 +89,4 @@ text = "[b]PAUSED"
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

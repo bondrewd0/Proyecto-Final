@@ -54,7 +54,7 @@ one_shot = true
 visible = false
 
 [node name="UnTag" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="MovingSFX" type="AudioStreamPlayer2D" parent="."]

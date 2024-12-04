@@ -6,6 +6,11 @@ extends Node2D
 @onready var death_sfx = $Sound/DeathSfx
 @onready var level_text = %levelText
 @onready var settings = %Settings
+@onready var area_1_music = %Area1Music
+@onready var area_2_music = %Area2Music
+@onready var area_3_music = %Area3Music
+@onready var menu_music = %MenuMusic
+@onready var game_over_music = %GameOverMusic
 
 @onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
@@ -14,6 +19,7 @@ var next_level_ref:PackedScene
 var level_count=1
 var current_level:Level=null
 var on_menu:bool=false
+var current_area_music:AudioStreamPlayer2D
 
 var action:int=0
 func _ready():
@@ -24,6 +30,7 @@ func _ready():
 	SignalBus.set_checkpoint.connect(player_check_point)
 	SignalBus.pass_level.connect(change_level)
 	SignalBus.game_completed.connect(_on_level_completed)
+	menu_music.play()
 	$UI/LevelIndicator.hide()
 
 func reset():
@@ -39,6 +46,20 @@ func player_check_point(position):
 func change_level(new_level:PackedScene):
 	action=1
 	level_count+=1
+	if level_count==4:
+		current_area_music=area_2_music
+	if level_count==7:
+		current_area_music=area_3_music
+	match level_count:
+		1, 2, 3:
+			if not area_1_music.playing:
+				area_1_music.play()
+		4,5,6:
+			if not area_2_music.playing:
+				area_2_music.play()
+		7,8,9:
+			if not area_3_music.playing:
+				area_3_music.play()
 	level_text.text="[b][center]Level: %s"%level_count
 	print(new_level)
 	get_tree().paused=true
@@ -52,10 +73,12 @@ func remove_current_level():
 	current_level=null
 
 func player_death():
+	current_area_music.stop()
 	current_level.reset_level()
 	death_screen.show()
 	death_screen.play_anim()
 	death_sfx.play()
+	game_over_music.play()
 
 
 func _on_transition_screen_transition_finished():
@@ -75,6 +98,8 @@ func _on_transition_screen_transition_finished():
 				current_level.set_respawn_location(last_checkPoint)
 				current_level.on_retry()
 			death_screen.hide()
+			game_over_music.stop()
+			current_area_music.play()
 			action=0
 	get_tree().paused=false
 	transition_screen.fade_out()
@@ -92,8 +117,11 @@ func _input(event):
 
 func _on_menu_scene_begin_game():
 	$UI/LevelIndicator.show()
+	menu_music.stop()
 	level_text.text="[b][center]Level: %s"%level_count
 	var instance=Initial_scene.instantiate()
+	current_area_music=area_1_music
+	current_area_music.play()
 	add_child(instance)
 	move_child(instance,0)
 	current_level=instance
@@ -106,6 +134,7 @@ func _on_pause_unpause():
 
 func _on_level_completed():
 	end_screen.show()
+	game_over_music.play()
 	call_deferred("remove_current_level")
 
 
@@ -113,12 +142,13 @@ func _on_end_screen_bact_to_menu():
 	$UI/LevelIndicator.hide()
 	level_count=1
 	end_screen.hide()
+	game_over_music.play()
 	$UI/MenuScene.show()
+	menu_music.play()
 
 
 func _on_settings_sound_v_changed(new_value):
-	var current_volume=AudioServer.get_bus_volume_db(2)
-	AudioServer.set_bus_volume_db(2,current_volume+new_value/10)
+	AudioServer.set_bus_volume_db(2,new_value)
 
 
 
@@ -127,5 +157,9 @@ func _on_menu_scene_open_settings():
 
 
 func _on_settings_music_v_changed(new_value):
-	var current_volume=AudioServer.get_bus_volume_db(1)
-	AudioServer.set_bus_volume_db(1,current_volume+new_value/10)
+	AudioServer.set_bus_volume_db(1,new_value)
+
+
+
+func _on_pause_open_settings():
+	settings.show()
