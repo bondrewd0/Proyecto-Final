@@ -8,7 +8,6 @@ signal block_coyote
 func _enter():
 	jump_sfx.play()
 	anim_tree.set("parameters/conditions/Jumping",true)
-	#print("Jump")
 	if Parent.is_on_floor():
 		block_coyote.emit()
 	Parent.velocity.y=jump_force

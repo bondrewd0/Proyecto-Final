@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="9_fbubc"]
 [ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="10_2cg8l"]
 [ext_resource type="PackedScene" uid="uid://dg5kcj88fssnp" path="res://Components/check_point.tscn" id="14_qq1xe"]
-[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="15_x7276"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/Box.tscn" id="15_x7276"]
 [ext_resource type="PackedScene" uid="uid://ogvbbgegun10" path="res://Components/kill_zone.tscn" id="16_1721q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kqwq"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://je5vem4uod1j"]
 
-[ext_resource type="Script" path="res://GeneralAssets/caja.gd" id="1_437bl"]
-[ext_resource type="Texture2D" uid="uid://35yuceg4u5in" path="res://GeneralAssets/3.png" id="2_1vrfj"]
-[ext_resource type="PackedScene" uid="uid://d155mtg2nv5ig" path="res://Components/Dragging_VFX.tscn" id="3_bc3t0"]
-[ext_resource type="PackedScene" uid="uid://cfrirllx4cbie" path="res://GeneralAssets/TaggedEffect.tscn" id="4_gqamf"]
-[ext_resource type="AudioStream" uid="uid://rux5xrliiigx" path="res://Audio/SFX/boxpushed.mp3" id="5_3xogy"]
+[ext_resource type="Script" path="res://GeneralAssets/Box.gd" id="1_6bfrk"]
+[ext_resource type="Texture2D" uid="uid://35yuceg4u5in" path="res://GeneralAssets/3.png" id="2_xo37f"]
+[ext_resource type="PackedScene" uid="uid://d155mtg2nv5ig" path="res://Components/Dragging_VFX.tscn" id="3_h16eq"]
+[ext_resource type="PackedScene" uid="uid://cfrirllx4cbie" path="res://GeneralAssets/TaggedEffect.tscn" id="4_2q8mj"]
+[ext_resource type="AudioStream" uid="uid://rux5xrliiigx" path="res://Audio/SFX/boxpushed.mp3" id="5_3s78w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k34fp"]
 resource_local_to_scene = true
@@ -20,7 +20,7 @@ collision_layer = 8
 collision_mask = 27
 mass = 5.5
 physics_material_override = SubResource("PhysicsMaterial_k34fp")
-script = ExtResource("1_437bl")
+script = ExtResource("1_6bfrk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e8pu3")
@@ -28,9 +28,9 @@ shape = SubResource("RectangleShape2D_e8pu3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.0734375, 0.0714844)
-texture = ExtResource("2_1vrfj")
+texture = ExtResource("2_xo37f")
 
-[node name="GPUParticles2D" parent="." instance=ExtResource("3_bc3t0")]
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_h16eq")]
 position = Vector2(-19, 19)
 emitting = false
 amount = 15
@@ -50,7 +50,7 @@ position = Vector2(0, -47)
 wait_time = 0.1
 one_shot = true
 
-[node name="TaggedEffect" parent="." instance=ExtResource("4_gqamf")]
+[node name="TaggedEffect" parent="." instance=ExtResource("4_2q8mj")]
 visible = false
 
 [node name="UnTag" type="Timer" parent="."]
@@ -58,7 +58,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="MovingSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_3xogy")
+stream = ExtResource("5_3s78w")
 bus = &"SFX"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b7nxyoen0p4a7" path="res://EnemyAssets/Enemy.tscn" id="8_8n565"]
 [ext_resource type="PackedScene" uid="uid://be6t8m8jeem8h" path="res://MapAssets/door.tscn" id="9_3hc7l"]
 [ext_resource type="PackedScene" uid="uid://c8skbmbdrul5j" path="res://MapAssets/HealthOrb.tscn" id="10_6oto6"]
-[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="10_gajwi"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/Box.tscn" id="10_gajwi"]
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="12_ofdem"]
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="14_8nwcj"]
 [ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="14_vqkck"]

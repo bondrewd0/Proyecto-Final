@@ -9,7 +9,6 @@ extends State
 func _enter():
 	#print("Walk")
 	anim_tree.set("parameters/conditions/Walking",true)
-	
 	walk_sound.play()
 
 func _handle_inputs(event:InputEvent):
@@ -48,5 +47,4 @@ func check_col():
 		var collision=Parent.get_slide_collision(i)
 		var caja_collider=collision.get_collider()
 		if caja_collider.is_in_group("Cajas") and abs(caja_collider.get_linear_velocity().x)<200:
-			#print(caja_collider.get_linear_velocity().x)
 			caja_collider.apply_central_impulse(-collision.get_normal()*100)

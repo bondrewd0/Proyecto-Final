@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c8skbmbdrul5j" path="res://MapAssets/HealthOrb.tscn" id="9_21fgj"]
 [ext_resource type="PackedScene" uid="uid://dqmb2upka0rjm" path="res://Traps/moving_laser.tscn" id="9_c35ro"]
 [ext_resource type="PackedScene" uid="uid://be6t8m8jeem8h" path="res://MapAssets/door.tscn" id="10_2jjav"]
-[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="11_5tb7d"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/Box.tscn" id="11_5tb7d"]
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="11_8o07r"]
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="12_r5fc1"]
 [ext_resource type="PackedScene" uid="uid://ogvbbgegun10" path="res://Components/kill_zone.tscn" id="15_tei2e"]

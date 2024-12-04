@@ -14,7 +14,6 @@ var has_jumpped:bool=false
 func _enter():
 	if can_jump:
 		coyote_timer.start()
-	#print("Fall")
 	anim_tree.set("parameters/conditions/Falling",true)
 
 
@@ -32,7 +31,6 @@ func _update(_delta:float):
 		Parent.velocity.x = move_toward(Parent.velocity.x, 0, Move_speed)
 	Parent.move_and_slide()
 	if Parent.is_on_floor():
-		#print("plop")
 		can_jump=true
 		anim_tree.set("parameters/conditions/Falling",false)
 		$LandSFX.play()
@@ -60,7 +58,6 @@ func _handle_inputs(event:InputEvent):
 	return null
 
 func coyote_timeout():
-	#print("NO")
 	can_jump=false
 
 func has_jumped():
@@ -71,7 +68,6 @@ func check_col():
 		var collision=Parent.get_slide_collision(i)
 		var caja_collider=collision.get_collider()
 		if caja_collider.is_in_group("Cajas") and abs(caja_collider.get_linear_velocity().x)<200:
-			#print(caja_collider.get_linear_velocity().x)
 			caja_collider.apply_central_impulse(-collision.get_normal()*100)
 
 

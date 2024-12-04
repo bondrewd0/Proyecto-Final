@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://be6t8m8jeem8h" path="res://MapAssets/door.tscn" id="10_jdjly"]
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="11_3m2cp"]
 [ext_resource type="PackedScene" uid="uid://bq7cbyoscu7h" path="res://Components/pressure_button.tscn" id="12_8kcbh"]
-[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="14_huhsb"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/Box.tscn" id="14_huhsb"]
 [ext_resource type="PackedScene" uid="uid://c8skbmbdrul5j" path="res://MapAssets/HealthOrb.tscn" id="16_qwnju"]
 [ext_resource type="PackedScene" uid="uid://dg5kcj88fssnp" path="res://Components/check_point.tscn" id="17_88p4l"]
 

@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqbxhfdml1do0"]
+
+[ext_resource type="Script" path="res://Pantallas/settings.gd" id="1_g6cie"]
+[ext_resource type="Texture2D" uid="uid://pg51tccak0cr" path="res://GeneralAssets/GUI.png" id="2_oh8qd"]
+[ext_resource type="FontFile" uid="uid://d1488ud3ildl5" path="res://GeneralAssets/Dank-Depths.ttf" id="3_u6wdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o20b"]
+atlas = ExtResource("2_oh8qd")
+region = Rect2(160, 160, 112, 32)
+
+[node name="Settings" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056532, 0.0545094, 0.170882, 1)
+script = ExtResource("1_g6cie")
+
+[node name="SoundVolume" type="HScrollBar" parent="."]
+z_index = 4
+layout_mode = 0
+offset_left = 379.0
+offset_top = 262.0
+offset_right = 734.0
+offset_bottom = 270.0
+min_value = -10.0
+max_value = 5.0
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SoundVolume"]
+offset_left = 106.0
+offset_top = -43.0
+offset_right = 296.0
+offset_bottom = -3.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_u6wdn")
+bbcode_enabled = true
+text = "SOUND EFFECTS 
+"
+
+[node name="MusicVolume" type="HScrollBar" parent="."]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 388.0
+offset_right = 730.0
+offset_bottom = 396.0
+min_value = -10.0
+max_value = 5.0
+step = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MusicVolume"]
+offset_left = 85.0
+offset_top = -43.0
+offset_right = 275.0
+offset_bottom = -3.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_u6wdn")
+bbcode_enabled = true
+text = "[center]MUSIC
+"
+
+[node name="Return" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -121.0
+offset_right = 56.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_3o20b")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Return"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 119.0
+offset_bottom = 46.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_u6wdn")
+text = "RETURN
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 43.0
+offset_right = 93.0
+offset_bottom = 156.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_u6wdn")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "VOLUME SETTINGS
+"
+
+[connection signal="value_changed" from="SoundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="value_changed" from="MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

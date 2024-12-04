@@ -30,5 +30,4 @@ func _input(event):
 		change_state(new_state)
 
 func _on_change_state(newState:State):
-	print("check")
 	change_state(newState)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdi8q5chc6xdw"]
 
-[ext_resource type="Script" path="res://Pantallas/nivel_2.gd" id="1_7nfth"]
+[ext_resource type="Script" path="res://Pantallas/level_2.gd" id="1_7nfth"]
 [ext_resource type="Texture2D" uid="uid://sne0v0ypw3e8" path="res://MapAssets/Area1/background1.png" id="2_s76gt"]
 [ext_resource type="TileSet" uid="uid://c52saool6ienv" path="res://MapAssets/Area1/Area1.tres" id="2_ypgnt"]
 [ext_resource type="Texture2D" uid="uid://bidb03omr6p27" path="res://MapAssets/Area1/background2.png" id="3_jvphp"]
@@ -22,7 +22,7 @@ player = NodePath("Player")
 player_spawn_point = NodePath("PlayerSpawn")
 respawnPoint = NodePath("RespawnPoint")
 Next_level_path = "res://Pantallas/level_3.tscn"
-Level_path = "res://Pantallas/nivel_2.tscn"
+Level_path = "res://Pantallas/level_2.tscn"
 portal = NodePath("Portal")
 
 [node name="TileMap" type="TileMap" parent="."]

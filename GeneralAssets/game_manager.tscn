@@ -1,18 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy8mt5pwgrf0j"]
+[gd_scene load_steps=13 format=3 uid="uid://cy8mt5pwgrf0j"]
 
 [ext_resource type="Script" path="res://GeneralAssets/game_manager.gd" id="1_ckkma"]
-[ext_resource type="PackedScene" uid="uid://cwg3obxa1q0k6" path="res://Pantallas/level_6.tscn" id="2_3dvel"]
 [ext_resource type="PackedScene" uid="uid://1h6t4t5rjx4p" path="res://Pantallas/Menu.tscn" id="2_4ykws"]
+[ext_resource type="PackedScene" uid="uid://bamccqwmlurnt" path="res://Pantallas/level_1.tscn" id="2_sn2nu"]
 [ext_resource type="PackedScene" uid="uid://demy82vnw23k5" path="res://Pantallas/GameOver.tscn" id="3_04rmv"]
 [ext_resource type="PackedScene" uid="uid://y2ryudoh7cr6" path="res://Pantallas/transition_screen.tscn" id="4_fsrbq"]
 [ext_resource type="PackedScene" uid="uid://7icd0fup3aqy" path="res://Pantallas/PauseMenu.tscn" id="6_2ww2e"]
 [ext_resource type="PackedScene" uid="uid://bdyp6v5fplobt" path="res://Pantallas/EndSreen.tscn" id="7_x74qm"]
+[ext_resource type="Shader" path="res://GeneralAssets/GlithEffect.gdshader" id="8_gl2yl"]
 [ext_resource type="AudioStream" uid="uid://cnbrl3r7yp2h5" path="res://Audio/SFX/machine stop 2 death.wav" id="8_hpgi1"]
+[ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://GeneralAssets/DS-DIGIB.TTF" id="9_41q7y"]
+[ext_resource type="PackedScene" uid="uid://dqbxhfdml1do0" path="res://Pantallas/settings.tscn" id="10_se836"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_548ux"]
+shader = ExtResource("8_gl2yl")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.111
+shader_parameter/shake_speed = 1.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [node name="GameManager" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ckkma")
-Initial_scene = ExtResource("2_3dvel")
+Initial_scene = ExtResource("2_sn2nu")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
@@ -35,6 +46,30 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="LevelIndicator" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_548ux")
+offset_left = 39.0
+offset_right = 215.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
+[node name="levelText" type="RichTextLabel" parent="UI/LevelIndicator"]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 0
+offset_top = 13.0
+offset_right = 205.0
+offset_bottom = 53.0
+theme_override_fonts/bold_font = ExtResource("9_41q7y")
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[b][c]Escriba tutorial"
+scroll_active = false
+
+[node name="Settings" parent="UI" instance=ExtResource("10_se836")]
+unique_name_in_owner = true
+visible = false
+
 [node name="Sound" type="Node" parent="."]
 
 [node name="DeathSfx" type="AudioStreamPlayer2D" parent="Sound"]
@@ -43,6 +78,9 @@ volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="begin_game" from="UI/MenuScene" to="." method="_on_menu_scene_begin_game"]
+[connection signal="open_settings" from="UI/MenuScene" to="." method="_on_menu_scene_open_settings"]
 [connection signal="transition_finished" from="UI/TransitionScreen" to="." method="_on_transition_screen_transition_finished"]
 [connection signal="unpause" from="UI/Pause" to="." method="_on_pause_unpause"]
 [connection signal="bact_to_menu" from="UI/EndScreen" to="." method="_on_end_screen_bact_to_menu"]
+[connection signal="musicV_Changed" from="UI/Settings" to="." method="_on_settings_music_v_changed"]
+[connection signal="soundV_Changed" from="UI/Settings" to="." method="_on_settings_sound_v_changed"]

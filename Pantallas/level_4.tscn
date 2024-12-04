@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bviqljxqhgxu7" path="res://MapAssets/Area2/background2.png" id="4_07wvd"]
 [ext_resource type="PackedScene" uid="uid://b1cj3750ycuy4" path="res://PlayerAssets/Player.tscn" id="5_jcxrb"]
 [ext_resource type="PackedScene" uid="uid://b5sjd1ynv3xvk" path="res://Components/Portal.tscn" id="6_nqgxc"]
-[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/caja.tscn" id="7_f7gnm"]
+[ext_resource type="PackedScene" uid="uid://je5vem4uod1j" path="res://GeneralAssets/Box.tscn" id="7_f7gnm"]
 [ext_resource type="PackedScene" uid="uid://ddv41nvfdxqvc" path="res://Components/deviceBase.tscn" id="8_tmec0"]
 [ext_resource type="Texture2D" uid="uid://dg5cmbqaoic47" path="res://MapAssets/Area3/1. main platforms.png" id="9_p2utt"]
 [ext_resource type="PackedScene" uid="uid://dr1wbfinn6ar2" path="res://Traps/laser.tscn" id="10_5f5ro"]
