@@ -122,7 +122,7 @@ limit_right = 2945
 limit_bottom = 550
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(67, 162)
+position = Vector2(74, 178)
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 

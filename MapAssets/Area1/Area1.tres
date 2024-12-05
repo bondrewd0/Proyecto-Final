@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://c52saool6ienv"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://c52saool6ienv"]
 
 [ext_resource type="Texture2D" uid="uid://dtgefi0srt6la" path="res://MapAssets/Area1/1. main platforms3.png" id="1_0ec0d"]
 
@@ -16,6 +16,9 @@ tile_data = PackedInt32Array(0, 1179648, 14, 65536, 1179648, 15, 131072, 1179648
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1xog6"]
 tile_data = PackedInt32Array(0, 2555904, 38, 65536, 2555904, 39, 1, 2621440, 38, 65537, 2621440, 39, 2, 2686976, 38, 65538, 2686976, 39, 3, 2752512, 38, 65539, 2752512, 39, 4, 2818048, 38, 65540, 2818048, 39, 5, 2883584, 38, 65541, 2883584, 39, 6, 2949120, 38, 65542, 2949120, 39, 7, 3014656, 38, 65543, 3014656, 39)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_4s53t"]
+tile_data = PackedInt32Array(0, 2555904, 38, 65536, 2555904, 39, 1, 2621440, 38, 65537, 2621440, 39, 2, 2686976, 38, 65538, 2686976, 39, 3, 2752512, 38, 65539, 2752512, 39, 4, 2818048, 38, 65540, 2818048, 39, 5, 2883584, 38, 65541, 2883584, 39, 6, 3014656, 38, 65542, 3014656, 39)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ngy6b"]
 
@@ -6445,3 +6448,4 @@ pattern_1 = SubResource("TileMapPattern_ipruv")
 pattern_2 = SubResource("TileMapPattern_70o3e")
 pattern_3 = SubResource("TileMapPattern_osgy7")
 pattern_4 = SubResource("TileMapPattern_1xog6")
+pattern_5 = SubResource("TileMapPattern_4s53t")
