@@ -139,9 +139,9 @@ color = Color(0.000693898, 0.000693898, 0.000693898, 1)
 [node name="TextSize3" parent="." instance=ExtResource("12_segmi")]
 offset_left = 1570.0
 offset_top = 225.0
-offset_right = 1754.0
+offset_right = 1801.0
 offset_bottom = 265.0
-Message = "you can jump while charging"
+Message = "you can charge and jump at the same time  "
 
 [node name="TextSize4" parent="." instance=ExtResource("12_segmi")]
 offset_left = 1454.0
