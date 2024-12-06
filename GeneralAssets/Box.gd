@@ -59,6 +59,9 @@ func move(pos:Vector2):
 	$Delay.start()
 	tagged_effect.pause()
 	tagged_effect.hide()
+	if !un_tag.is_stopped():
+		un_tag.stop()
+		SignalBus.unmark_prop.emit()
 
 
 #descongelo el objeto
@@ -67,7 +70,6 @@ func _on_delay_timeout():
 
 
 func _on_un_tag_timeout():
-	print("tarde")
 	SignalBus.unmark_prop.emit()
 	tagged_effect.pause()
 	tagged_effect.hide()

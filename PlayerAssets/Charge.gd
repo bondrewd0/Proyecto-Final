@@ -47,8 +47,9 @@ func _enter():
 		can_charge=true
 		anim_tree.set("parameters/conditions/Charging",true)
 	#Si no, ejecuta la funcion para cambiar de lugar
-	elif proyectile_instance:
+	elif proyectile_instance or enemy_ref or prop_ref:
 		teleport()
+		print("tp")
 
 
 func _handle_inputs(event:InputEvent):
@@ -59,9 +60,6 @@ func _handle_inputs(event:InputEvent):
 			can_shoot=false
 			can_charge=false
 			fire_proyectile()
-		else: 
-			if proyectile_instance:
-				teleport()
 	#Si se puede saltar ejecuta una version simple del salto
 	if event.is_action("Jump") and Parent.is_on_floor():
 		#print("jump")
@@ -72,7 +70,8 @@ func _handle_inputs(event:InputEvent):
 #elimina la instancia del proyectil y permite volver a disparar
 func free_proyectile():
 	proyectile_instance=null
-	can_shoot=true
+	if enemy_ref==null and prop_ref==null:
+		can_shoot=true
 
 #Logica de disparo del proyectil
 func fire_proyectile():

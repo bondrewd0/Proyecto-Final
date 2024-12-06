@@ -34,6 +34,7 @@ func _on_hit_box_area_entered(area):
 		despawned.emit()
 		queue_free()
 	if area.get_collision_layer()==8:
+		despawned.emit()
 		queue_free()
 
 

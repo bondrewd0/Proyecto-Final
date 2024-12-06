@@ -9,7 +9,6 @@ func init(parent:CharacterBody2D, anim_tree:AnimationTree):
 		child.anim_tree=anim_tree
 		child.connect("change_state",_on_change_state)
 	if Initial_state:
-		print(Initial_state)
 		change_state(Initial_state)
 
 func change_state(new_state:State):

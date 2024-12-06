@@ -10,12 +10,10 @@ func play_anim():
 	$AnimationPlayer.play("appear")
 
 func _on_salir_pressed():
-	print("Exit")
 	get_tree().quit()
 
 
 func _on_reintentar_pressed():
-	print("retry")
 	$Reintentar.disabled=true
 	SignalBus.reset_game.emit()
 	

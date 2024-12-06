@@ -86,7 +86,7 @@ offset_bottom = 40.0
 texture = ExtResource("4_07wvd")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(165, 253)
+position = Vector2(64, 271)
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 

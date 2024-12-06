@@ -13,7 +13,6 @@ func _ready():
 	portal.entered.connect(_on_portal_entered)
 
 func reset_level():
-	print("MANCO")
 	player.queue_free()
 	despawn_all()
 
@@ -23,7 +22,6 @@ func despawn_all():
 
 func _on_portal_entered():
 	var next_level_ref=load(Next_level_path) as PackedScene
-	print(next_level_ref)
 	SignalBus.pass_level.emit(next_level_ref)
 
 func on_retry():

@@ -9,7 +9,6 @@ func  _ready():
 	sprite.play("Off")
 
 func _on_pressure_detector_body_entered(_body):
-	print("bodypisado")
 	light.enabled=true
 	sprite.play("Pressed")
 	if Attached_Object:

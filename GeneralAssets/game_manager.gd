@@ -23,7 +23,6 @@ var current_area_music:AudioStreamPlayer2D
 
 var action:int=0
 func _ready():
-	print(AudioServer.get_bus_volume_db(2))
 	on_menu=true
 	SignalBus.reset_game.connect(reset)
 	SignalBus.player_dead.connect(player_death)
@@ -66,7 +65,6 @@ func change_level(new_level:PackedScene):
 			if not area_3_music.playing:
 				area_3_music.play()
 	level_text.text="[b][center]Level: %s"%level_count
-	print(new_level)
 	get_tree().paused=true
 	next_level_ref=new_level
 	transition_screen.fade_in()
@@ -130,7 +128,6 @@ func _on_menu_scene_begin_game():
 	add_child(instance)
 	move_child(instance,0)
 	current_level=instance
-	print(current_level)
 	on_menu=false
 
 

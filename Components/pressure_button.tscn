@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmh3xf0dybgcd" path="res://GeneralAssets/Pressure buton.png" id="2_intd3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q24rx"]
+rough = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7gx7"]
 radius = 3.0
