@@ -29,4 +29,3 @@ func _on_animation_finished():
 func _on_hit_box_body_entered(body):
 	if Active:
 		entered.emit()
-		print("dentro")

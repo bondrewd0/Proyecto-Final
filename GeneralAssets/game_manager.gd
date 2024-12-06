@@ -45,7 +45,6 @@ func player_check_point(position):
 func change_level(new_level:PackedScene):
 	action=1
 	level_count+=1
-	print(level_count)
 	if level_count==4:
 		current_area_music.stop()
 		current_area_music=area_2_music

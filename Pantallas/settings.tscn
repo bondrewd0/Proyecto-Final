@@ -89,6 +89,24 @@ theme_override_fonts/normal_font = ExtResource("3_u6wdn")
 text = "RETURN
 "
 
+[node name="MuteMusic" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 433.0
+offset_right = 570.0
+offset_bottom = 457.0
+scale = Vector2(1.245, 1.245)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MuteMusic"]
+offset_left = -165.0
+offset_right = 25.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_u6wdn")
+bbcode_enabled = true
+text = "[center]MUTE MUSIC:
+"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -109,3 +127,4 @@ text = "VOLUME SETTINGS
 [connection signal="value_changed" from="SoundVolume" to="." method="_on_sound_volume_value_changed"]
 [connection signal="value_changed" from="MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="MuteMusic" to="." method="_on_check_box_pressed"]

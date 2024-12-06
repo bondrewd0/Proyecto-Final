@@ -17,3 +17,7 @@ func _on_return_pressed():
 
 func _on_music_volume_value_changed(value):
 	musicV_Changed.emit(value)
+
+
+func _on_check_box_pressed():
+	AudioServer.set_bus_mute(1,$MuteMusic.button_pressed)

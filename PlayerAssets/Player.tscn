@@ -382,6 +382,10 @@ volume_db = -10.0
 max_distance = 1e+06
 bus = &"SFX"
 
+[node name="ShotCooldown" type="Timer" parent="StateManager/Charge"]
+wait_time = 0.3
+one_shot = true
+
 [node name="Knocked" type="Node" parent="StateManager" node_paths=PackedStringArray("Idle_State", "Walk_State", "Fall_State")]
 script = ExtResource("9_4ow0p")
 Idle_State = NodePath("../Idle")
@@ -459,4 +463,5 @@ script = ExtResource("14_pbf5w")
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="timeout" from="StateManager/Fall/Coyote_Timer" to="StateManager/Fall" method="coyote_timeout"]
 [connection signal="block_coyote" from="StateManager/Jump" to="StateManager/Fall" method="has_jumped"]
+[connection signal="timeout" from="StateManager/Charge/ShotCooldown" to="StateManager/Charge" method="_on_shot_cooldown_timeout"]
 [connection signal="timeout" from="StateManager/Knocked/BlockMovement" to="StateManager/Knocked" method="_on_block_movement_timeout"]

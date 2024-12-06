@@ -36,6 +36,10 @@ var prop_ref:RigidBody2D=null
 
 #Al entrar conecta las señales para marcar y desmarcar todo aquello que pueda ser marcado
 func _enter():
+	if not can_shoot:
+		if proyectile_instance or enemy_ref or prop_ref:
+			print("si")
+			teleport()
 	if !SignalBus.enemy_marked.is_connected(setmarked_enemy):
 		SignalBus.enemy_marked.connect(setmarked_enemy)
 		SignalBus.unmark_enemy.connect(free_marked_enemy)
@@ -46,10 +50,6 @@ func _enter():
 	if can_shoot:
 		can_charge=true
 		anim_tree.set("parameters/conditions/Charging",true)
-	#Si no, ejecuta la funcion para cambiar de lugar
-	elif proyectile_instance or enemy_ref or prop_ref:
-		teleport()
-		print("tp")
 
 
 func _handle_inputs(event:InputEvent):
@@ -59,6 +59,7 @@ func _handle_inputs(event:InputEvent):
 		if can_shoot:
 			can_shoot=false
 			can_charge=false
+			print("noooo")
 			fire_proyectile()
 	#Si se puede saltar ejecuta una version simple del salto
 	if event.is_action("Jump") and Parent.is_on_floor():
@@ -70,11 +71,11 @@ func _handle_inputs(event:InputEvent):
 #elimina la instancia del proyectil y permite volver a disparar
 func free_proyectile():
 	proyectile_instance=null
-	if enemy_ref==null and prop_ref==null:
-		can_shoot=true
+
 
 #Logica de disparo del proyectil
 func fire_proyectile():
+	print("No deberia")
 	#Crea instancia de proyectil y la posiciona segun la posicion del player
 	proyectile_instance=proyectile_ref.instantiate()
 	proyectile_instance.global_position=Parent.global_position
@@ -107,6 +108,7 @@ func _update(_delta:float):
 
 #Logica de teletransporte a un objeto o  al proyectil
 func teleport():
+	$ShotCooldown.start()
 	tpsfx.play()
 	if enemy_ref:            
 		var current_pos=Parent.global_position
@@ -118,11 +120,10 @@ func teleport():
 		var current_pos=Parent.global_position
 		Parent.global_position=prop_ref.get_node("PlayerTpPosition").global_position
 		prop_ref.move(current_pos)
-		free_marked_prop()
 	else:
 		Parent.global_position=proyectile_instance.global_position
 		proyectile_instance.force_despawn()
-	free_proyectile()
+		free_proyectile()
 
 func setmarked_enemy(enemy_reference:Enemy):
 	enemy_ref=enemy_reference
@@ -145,3 +146,7 @@ func _exit():
 	anim_tree.set("parameters/conditions/Charging",false)
 	charge_meter.reset()
 	charge_level=0
+
+
+func _on_shot_cooldown_timeout():
+	can_shoot=true
