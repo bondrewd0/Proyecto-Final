@@ -14,6 +14,7 @@ extends Node2D
 
 @onready var death_screen=%GameOver
 @onready var transition_screen = %TransitionScreen
+@export var levels:Array[PackedScene]
 var last_checkPoint:Vector2
 var next_level_ref:PackedScene
 var level_count=1
@@ -108,6 +109,24 @@ func _on_transition_screen_transition_finished():
 
 
 func _input(event):
+	if Input.is_key_pressed(KEY_1):
+		print(levels[0])
+		Initial_scene=levels[0]
+	if Input.is_key_pressed(KEY_2):
+		print(levels[1])
+		Initial_scene=levels[1]
+	if Input.is_key_pressed(KEY_3):
+		print(levels[2])
+		Initial_scene=levels[2]
+	if Input.is_key_pressed(KEY_4):
+		print(levels[3])
+		Initial_scene=levels[3]
+	if Input.is_key_pressed(KEY_5):
+		print(levels[4])
+		Initial_scene=levels[4]
+	if Input.is_key_pressed(KEY_6):
+		print(levels[5])
+		Initial_scene=levels[5]
 	if event.is_action_pressed("Pause"):
 		if on_menu:
 			get_tree().quit()

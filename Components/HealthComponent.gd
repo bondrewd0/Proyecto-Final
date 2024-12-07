@@ -1,6 +1,6 @@
 extends Node
 class_name Health_Value
-@export var Max_Health:float=10
+@export var Max_Health:int=10
 @export var Health:int=1:
 	set(new_value):
 		if new_value<=Max_Health:

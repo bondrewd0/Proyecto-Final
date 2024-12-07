@@ -13,13 +13,13 @@ func _ready():
 	tutorial.Tutorial_text.text="[b][center]"+Message
 
 
-func _on_tutorial_area_entered(area):
+func _on_tutorial_area_entered(_area):
 	for child in get_children():
 		child.show()
 		enter_sfx.play()
 
 
-func _on_tutorial_area_exited(area):
+func _on_tutorial_area_exited(_area):
 	for child in get_children():
 		child.hide()
 		exit_sfx.play()

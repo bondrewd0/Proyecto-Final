@@ -38,7 +38,6 @@ var prop_ref:RigidBody2D=null
 func _enter():
 	if not can_shoot:
 		if proyectile_instance or enemy_ref or prop_ref:
-			print("si")
 			teleport()
 	if !SignalBus.enemy_marked.is_connected(setmarked_enemy):
 		SignalBus.enemy_marked.connect(setmarked_enemy)
@@ -59,7 +58,6 @@ func _handle_inputs(event:InputEvent):
 		if can_shoot:
 			can_shoot=false
 			can_charge=false
-			print("noooo")
 			fire_proyectile()
 	#Si se puede saltar ejecuta una version simple del salto
 	if event.is_action("Jump") and Parent.is_on_floor():
@@ -71,11 +69,11 @@ func _handle_inputs(event:InputEvent):
 #elimina la instancia del proyectil y permite volver a disparar
 func free_proyectile():
 	proyectile_instance=null
-
+	if enemy_ref==null and prop_ref==null:
+		$ShotCooldown.start()
 
 #Logica de disparo del proyectil
 func fire_proyectile():
-	print("No deberia")
 	#Crea instancia de proyectil y la posiciona segun la posicion del player
 	proyectile_instance=proyectile_ref.instantiate()
 	proyectile_instance.global_position=Parent.global_position

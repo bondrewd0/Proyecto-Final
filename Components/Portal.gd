@@ -26,6 +26,6 @@ func _on_animation_finished():
 
 
 
-func _on_hit_box_body_entered(body):
+func _on_hit_box_body_entered(_body):
 	if Active:
 		entered.emit()

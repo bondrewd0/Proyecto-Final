@@ -178,6 +178,7 @@ offset_bottom = 239.0
 Message = "press e to interact"
 
 [node name="ColorRect" type="ColorRect" parent="TextSize"]
+visible = false
 show_behind_parent = true
 layout_mode = 0
 offset_left = 52.0

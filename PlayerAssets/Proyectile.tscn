@@ -68,6 +68,10 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="WaitToDespawn" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="Despawner" to="." method="_on_despawner_timeout"]

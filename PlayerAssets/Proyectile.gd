@@ -3,6 +3,7 @@ class_name Player_Bullet
 @onready var hit_box = $HitBox
 @onready var despawner = $Despawner
 @onready var animation_player = $AnimationPlayer
+@onready var wait_to_despawn = $WaitToDespawn
 
 @export var  SPEED = 100.0
 @export var deceleration:float=1.0
@@ -31,9 +32,13 @@ func _on_hit_box_area_entered(area):
 		#print("Tagged you are it")
 		queue_free()
 	if parent is Trap:
+		print("delete")
 		despawned.emit()
 		queue_free()
 	if area.get_collision_layer()==8:
+		hide()
+		wait_to_despawn.start()
+		await  wait_to_despawn.timeout
 		despawned.emit()
 		queue_free()
 

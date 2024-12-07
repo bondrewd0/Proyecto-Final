@@ -9,7 +9,7 @@ var player_position=Vector2.ZERO
 @onready var moving_sfx = $MovingSFX
 
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	angular_velocity=0
 	rotation_degrees=0
 	#cuando las fisicas esten desactivadas y quiera cambiar de lugar
@@ -42,10 +42,10 @@ func _process(_delta):
 func _on_hitbox_area_entered(area):
 	var parent=area.get_parent()
 	if parent is Player_Bullet:
+		SignalBus.prop_marked.emit(self)
 		marked=true
 		tagged_effect.show()
 		tagged_effect.play("On")
-		SignalBus.prop_marked.emit(self)
 		un_tag.start()
 
 func move(pos:Vector2):
