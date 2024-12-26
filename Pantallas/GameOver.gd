@@ -8,6 +8,7 @@ extends ColorRect
 func play_anim():
 	$Reintentar.disabled=false
 	$AnimationPlayer.play("appear")
+	$Reintentar.grab_focus()
 
 func _on_salir_pressed():
 	get_tree().quit()

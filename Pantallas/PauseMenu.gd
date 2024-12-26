@@ -15,3 +15,8 @@ func _on_exit_pressed():
 
 func _on_settings_pressed():
 	open_settings.emit()
+
+
+func _on_visibility_changed():
+	if visible:
+		$Continue.grab_focus()

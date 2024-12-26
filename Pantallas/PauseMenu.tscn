@@ -87,6 +87,7 @@ theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 text = "[b]PAUSED"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

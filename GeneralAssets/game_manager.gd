@@ -155,12 +155,14 @@ func _on_pause_unpause():
 func _on_level_completed():
 	end_screen.show()
 	game_over_music.play()
+	current_area_music.stop()
 	call_deferred("remove_current_level")
 
 
 func _on_end_screen_bact_to_menu():
 	$UI/LevelIndicator.hide()
 	level_count=1
+	
 	end_screen.hide()
 	game_over_music.play()
 	$UI/MenuScene.show()
