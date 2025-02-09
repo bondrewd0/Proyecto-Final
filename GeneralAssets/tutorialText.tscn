@@ -32,7 +32,7 @@ text = "[b][c]Escriba tutorial"
 scroll_active = false
 
 [node name="Screen" type="TextureRect" parent="."]
-self_modulate = Color(0.313726, 1, 1, 0.470588)
+self_modulate = Color(0.67451, 1, 0.666667, 0.2)
 layout_mode = 0
 offset_left = -6.0
 offset_right = 34.0
@@ -42,5 +42,6 @@ expand_mode = 1
 
 [node name="Effect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_wwsta")
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

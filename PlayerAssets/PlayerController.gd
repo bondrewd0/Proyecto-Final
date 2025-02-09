@@ -46,6 +46,8 @@ func _input(event):
 		if interactable_object:
 			#print(interactable_object)
 			interactable_object.interaction()
+	if event.is_action_pressed("Force Despawn"):
+		SignalBus.despawn_orb.emit()
 
 
 func _on_hitbox_area_entered(area):

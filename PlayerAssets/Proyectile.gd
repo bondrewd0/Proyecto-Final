@@ -12,6 +12,7 @@ var direction:int=0
 signal despawned
 func _ready():
 	#print("pum")
+	SignalBus.despawn_orb.connect(despawn)
 	deceleration=((SPEED_MOD*deceleration)/2)*-direction
 	animation_player.play("Dissipate")
 	despawner.wait_time=4/SPEED_MOD
@@ -24,7 +25,9 @@ func _physics_process(_delta):
 	velocity.x+=deceleration
 	move_and_slide()
 	
-
+func despawn():
+	despawned.emit()
+	queue_free()
 
 func _on_hit_box_area_entered(area):
 	var parent=area.get_parent()
@@ -51,6 +54,7 @@ func _on_despawner_timeout():
 func force_despawn():
 	get_parent().remove_child(self)
 	queue_free()
+	
 
 
 func _on_hit_box_body_entered(body):

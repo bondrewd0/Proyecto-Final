@@ -149,3 +149,10 @@ offset_top = 318.0
 offset_right = 1582.0
 offset_bottom = 358.0
 Message = "checkpoint"
+
+[node name="TextSize5" parent="." instance=ExtResource("12_segmi")]
+offset_left = 796.0
+offset_top = 320.0
+offset_right = 1006.0
+offset_bottom = 363.0
+Message = "Press F to terminate the orb earlier"
