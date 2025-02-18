@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cy8mt5pwgrf0j"]
+[gd_scene load_steps=26 format=3 uid="uid://cy8mt5pwgrf0j"]
 
 [ext_resource type="Script" path="res://GeneralAssets/game_manager.gd" id="1_ckkma"]
 [ext_resource type="PackedScene" uid="uid://1h6t4t5rjx4p" path="res://Pantallas/Menu.tscn" id="2_4ykws"]
@@ -12,9 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://bbfodnub1loan" path="res://Pantallas/level_5.tscn" id="6_bxu8s"]
 [ext_resource type="PackedScene" uid="uid://cwg3obxa1q0k6" path="res://Pantallas/level_6.tscn" id="7_so6up"]
 [ext_resource type="PackedScene" uid="uid://bdyp6v5fplobt" path="res://Pantallas/EndSreen.tscn" id="7_x74qm"]
+[ext_resource type="PackedScene" uid="uid://cqq0xvn34jfti" path="res://Pantallas/level_7.tscn" id="8_dg76h"]
 [ext_resource type="Shader" path="res://GeneralAssets/GlithEffect.gdshader" id="8_gl2yl"]
 [ext_resource type="AudioStream" uid="uid://cnbrl3r7yp2h5" path="res://Audio/SFX/machine stop 2 death.wav" id="8_hpgi1"]
 [ext_resource type="FontFile" uid="uid://cof1eqtwct5ki" path="res://GeneralAssets/DS-DIGIB.TTF" id="9_41q7y"]
+[ext_resource type="PackedScene" uid="uid://cfhjeo60h5bq1" path="res://Pantallas/level_8.tscn" id="9_f153f"]
+[ext_resource type="PackedScene" uid="uid://d3rri27ibva5o" path="res://Pantallas/level_9.tscn" id="10_1k5qv"]
 [ext_resource type="PackedScene" uid="uid://dqbxhfdml1do0" path="res://Pantallas/settings.tscn" id="10_se836"]
 [ext_resource type="AudioStream" uid="uid://cinqpsv55lbo3" path="res://Audio/Music/Empty Streets.wav" id="12_83asw"]
 [ext_resource type="AudioStream" uid="uid://bgjggd8qhi17n" path="res://Audio/Music/The Story Continues.wav" id="12_xrkvc"]
@@ -34,7 +37,7 @@ shader_parameter/shake_color_rate = 0.0
 process_mode = 3
 script = ExtResource("1_ckkma")
 Initial_scene = ExtResource("2_sn2nu")
-levels = Array[PackedScene]([ExtResource("2_sn2nu"), ExtResource("3_irh71"), ExtResource("2_hy0fg"), ExtResource("5_8n1sf"), ExtResource("6_bxu8s"), ExtResource("7_so6up")])
+levels = Array[PackedScene]([ExtResource("2_sn2nu"), ExtResource("3_irh71"), ExtResource("2_hy0fg"), ExtResource("5_8n1sf"), ExtResource("6_bxu8s"), ExtResource("7_so6up"), ExtResource("8_dg76h"), ExtResource("9_f153f"), ExtResource("10_1k5qv")])
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3

@@ -112,21 +112,39 @@ func _input(event):
 	if Input.is_key_pressed(KEY_1):
 		print(levels[0])
 		Initial_scene=levels[0]
+		level_count=1
 	if Input.is_key_pressed(KEY_2):
 		print(levels[1])
 		Initial_scene=levels[1]
+		level_count=2
 	if Input.is_key_pressed(KEY_3):
 		print(levels[2])
 		Initial_scene=levels[2]
+		level_count=3
 	if Input.is_key_pressed(KEY_4):
 		print(levels[3])
 		Initial_scene=levels[3]
+		level_count=4
 	if Input.is_key_pressed(KEY_5):
 		print(levels[4])
 		Initial_scene=levels[4]
+		level_count=5
 	if Input.is_key_pressed(KEY_6):
 		print(levels[5])
 		Initial_scene=levels[5]
+		level_count=6
+	if Input.is_key_pressed(KEY_7):
+		print(levels[6])
+		Initial_scene=levels[6]
+		level_count=7
+	if Input.is_key_pressed(KEY_8):
+		print(levels[7])
+		Initial_scene=levels[7]
+		level_count=8
+	if Input.is_key_pressed(KEY_9):
+		print(levels[8])
+		Initial_scene=levels[8]
+		level_count=9
 	if event.is_action_pressed("Pause"):
 		if on_menu:
 			get_tree().quit()
